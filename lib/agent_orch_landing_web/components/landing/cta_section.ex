@@ -12,10 +12,10 @@ defmodule AgentOrchLandingWeb.Landing.CtaSection do
     ~H"""
     <section class="px-6 py-24 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent" data-animate="fade-up">
           Ready to take control of your agents?
         </h2>
-        <p class="mt-4 text-lg text-gray-400">
+        <p class="mt-4 text-lg text-gray-400" data-animate="fade-up" data-delay="100">
           Join the waitlist for early access. Or become a design partner and shape the product.
         </p>
 

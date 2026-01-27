@@ -132,7 +132,7 @@ defmodule AgentOrchLandingWeb.LandingLive do
     ~H"""
     <div class="min-h-screen bg-gray-950 text-white">
       <.navbar mobile_menu_open={@mobile_menu_open} />
-      <div class="pt-16">
+      <div class="pt-16" id="scroll-reveal" phx-hook="ScrollReveal">
         <.hero_section headline={@headline} form={@email_form} submitted={@email_submitted} />
         <.problem_section />
         <.solution_section />

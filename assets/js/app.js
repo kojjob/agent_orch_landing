@@ -24,10 +24,41 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
+// Scroll Reveal Hook — triggers CSS animations via IntersectionObserver
+const Hooks = {}
+
+Hooks.ScrollReveal = {
+  mounted() {
+    const elements = this.el.querySelectorAll("[data-animate]")
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const delay = entry.target.dataset.delay || "0"
+            entry.target.style.animationDelay = `${delay}ms`
+            entry.target.classList.add("is-visible")
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    )
+
+    elements.forEach((el) => observer.observe(el))
+
+    this.observer = observer
+  },
+  destroyed() {
+    if (this.observer) this.observer.disconnect()
+  },
+}
+
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: {_csrf_token: csrfToken},
+  hooks: Hooks,
 })
 
 // Show progress bar on live navigation and form submits

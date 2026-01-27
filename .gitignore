@@ -35,3 +35,6 @@ agent_orch_landing-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Pre-cached build binaries (too large for GitHub)
+/_build_cache/
+

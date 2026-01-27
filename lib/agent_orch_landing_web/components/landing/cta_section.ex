@@ -30,10 +30,10 @@ defmodule AgentOrchLandingWeb.Landing.CtaSection do
                   type="email"
                   placeholder="you@company.com"
                   required
-                  class="!bg-gray-800 !border-gray-700 !text-white placeholder:text-gray-500"
+                  class="bg-gray-800/80 border-gray-600 text-white placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors"
                 />
               </div>
-              <button type="submit" class="rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500 transition-colors whitespace-nowrap">
+              <button type="submit" class="rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:bg-indigo-500 hover:shadow-indigo-500/40 active:scale-[0.98] transition-all whitespace-nowrap">
                 Join Waitlist
               </button>
             </.form>
@@ -83,7 +83,7 @@ defmodule AgentOrchLandingWeb.Landing.CtaSection do
               />
               <.input field={@partner_form[:pain_point]} type="textarea" label="Biggest pain point with agents?" required />
 
-              <button type="submit" class="w-full rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white hover:bg-indigo-500 transition-colors">
+              <button type="submit" class="w-full rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:bg-indigo-500 hover:shadow-indigo-500/40 active:scale-[0.98] transition-all">
                 Apply as Design Partner
               </button>
             </.form>

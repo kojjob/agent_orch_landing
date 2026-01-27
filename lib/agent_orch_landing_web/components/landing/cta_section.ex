@@ -32,11 +32,11 @@ defmodule AgentOrchLandingWeb.Landing.CtaSection do
                   type="email"
                   placeholder="you@company.com"
                   required
-                  class="bg-white dark:bg-gray-800/80 px-4 py-2.5 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors"
+                  class="w-full rounded-full px-5 py-3 bg-white dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
                 />
               </div>
-              <button type="submit" class="rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:bg-indigo-500 hover:shadow-indigo-500/40 active:scale-[0.98] transition-all whitespace-nowrap">
-                Join Waitlist
+              <button type="submit" class="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:brightness-110 active:scale-[0.97] transition-all whitespace-nowrap">
+                Join Waitlist →
               </button>
             </.form>
           <% end %>
@@ -100,7 +100,7 @@ defmodule AgentOrchLandingWeb.Landing.CtaSection do
                 />
                 <.input field={@partner_form[:pain_point]} type="textarea" label="Biggest pain point with agents?" required />
 
-                <button type="submit" class="w-full rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:bg-indigo-500 hover:shadow-indigo-500/40 active:scale-[0.98] transition-all">
+                <button type="submit" class="w-full rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:brightness-110 active:scale-[0.97] transition-all">
                   Apply as Design Partner
                 </button>
               </.form>

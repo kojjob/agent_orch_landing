@@ -8,7 +8,7 @@ defmodule AgentOrchLandingWeb.Landing.HeroSection do
 
   def hero_section(assigns) do
     ~H"""
-    <section class="relative overflow-hidden px-6 py-24 sm:py-32 lg:px-8">
+    <section id="hero" class="relative overflow-hidden px-6 py-24 sm:py-32 lg:px-8">
       <div class="absolute inset-0 bg-gradient-to-br from-indigo-100 via-white to-purple-100 dark:from-indigo-950 dark:via-gray-950 dark:to-purple-950"></div>
       <div class="relative mx-auto max-w-3xl text-center" data-animate="hero" data-delay="100">
         <h1 class="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
@@ -28,18 +28,18 @@ defmodule AgentOrchLandingWeb.Landing.HeroSection do
               You're on the waitlist!
             </div>
           <% else %>
-            <.form for={@form} phx-submit="submit_email" phx-change="validate_email" class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+            <.form for={@form} phx-submit="submit_email" phx-change="validate_email" class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto [&_.fieldset]:mb-0">
               <div class="flex-1">
                 <.input
                   field={@form[:email]}
                   type="email"
                   placeholder="you@company.com"
                   required
-                  class="py-2.5 px-4 bg-white dark:bg-gray-800/80 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors"
+                  class="w-full rounded-full px-5 py-3 bg-white dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
                 />
               </div>
-              <button type="submit" class="rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:bg-indigo-500 hover:shadow-indigo-500/40 active:scale-[0.98] transition-all whitespace-nowrap">
-                Join Waitlist
+              <button type="submit" class="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:brightness-110 active:scale-[0.97] transition-all whitespace-nowrap">
+                Join Waitlist →
               </button>
             </.form>
           <% end %>

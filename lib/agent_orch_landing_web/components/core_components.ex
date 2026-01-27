@@ -235,11 +235,11 @@ defmodule AgentOrchLandingWeb.CoreComponents do
     ~H"""
     <div class="fieldset mb-2">
       <label>
-        <span :if={@label} class="label mb-1 text-sm font-medium text-gray-300">{@label}</span>
+        <span :if={@label} class="label mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">{@label}</span>
         <select
           id={@id}
           name={@name}
-          class={[@class || "w-full select bg-gray-800 border-gray-700 text-white focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors", @errors != [] && (@error_class || "select-error border-red-500")]}
+          class={[@class || "w-full select bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors", @errors != [] && (@error_class || "select-error border-red-500")]}
           multiple={@multiple}
           {@rest}
         >
@@ -256,12 +256,12 @@ defmodule AgentOrchLandingWeb.CoreComponents do
     ~H"""
     <div class="fieldset mb-2">
       <label>
-        <span :if={@label} class="label mb-1 text-sm font-medium text-gray-300">{@label}</span>
+        <span :if={@label} class="label mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">{@label}</span>
         <textarea
           id={@id}
           name={@name}
           class={[
-            @class || "w-full textarea bg-gray-800 border-gray-700 text-white placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors",
+            @class || "w-full textarea bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors",
             @errors != [] && (@error_class || "textarea-error border-red-500")
           ]}
           {@rest}
@@ -277,14 +277,14 @@ defmodule AgentOrchLandingWeb.CoreComponents do
     ~H"""
     <div class="fieldset mb-2">
       <label>
-        <span :if={@label} class="label mb-1 text-sm font-medium text-gray-300">{@label}</span>
+        <span :if={@label} class="label mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">{@label}</span>
         <input
           type={@type}
           name={@name}
           id={@id}
           value={Phoenix.HTML.Form.normalize_value(@type, @value)}
           class={[
-            @class || "w-full input bg-gray-800 border-gray-700 text-white placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors",
+            @class || "w-full input bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors",
             @errors != [] && (@error_class || "input-error border-red-500")
           ]}
           {@rest}

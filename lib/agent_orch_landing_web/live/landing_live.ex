@@ -97,9 +97,7 @@ defmodule AgentOrchLandingWeb.LandingLive do
       {:ok, _partner} ->
         {:noreply,
          socket
-         |> assign(:partner_submitted, true)
-         |> assign(:show_partner_modal, false)
-         |> put_flash(:info, "Welcome to the design partner program!")}
+         |> assign(:partner_submitted, true)}
 
       {:error, changeset} ->
         {:noreply, assign(socket, :partner_form, to_form(changeset))}

@@ -1,0 +1,57 @@
+defmodule AgentOrchLandingWeb.Landing.SocialProofSection do
+  use Phoenix.Component
+
+  def social_proof_section(assigns) do
+    ~H"""
+    <section class="px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-5xl">
+        <h2 class="text-center text-3xl font-bold tracking-tight sm:text-4xl text-white">
+          Built for teams shipping AI agents
+        </h2>
+
+        <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
+          <div class="rounded-xl bg-gray-800/50 p-8 ring-1 ring-gray-700/50">
+            <p class="text-gray-300 italic">
+              "We were spending 40% of engineering time debugging agent failures.
+              We need something purpose-built for agent orchestration."
+            </p>
+            <div class="mt-4 flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-indigo-600/20 flex items-center justify-center text-indigo-400 font-bold">S</div>
+              <div>
+                <p class="text-sm font-semibold text-white">Sarah K.</p>
+                <p class="text-sm text-gray-500">ML Platform Lead, Series B Startup</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-gray-800/50 p-8 ring-1 ring-gray-700/50">
+            <p class="text-gray-300 italic">
+              "Our multi-agent system processes 10K tasks/day. Without proper
+              orchestration tooling, we'd be flying blind."
+            </p>
+            <div class="mt-4 flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-purple-600/20 flex items-center justify-center text-purple-400 font-bold">M</div>
+              <div>
+                <p class="text-sm font-semibold text-white">Marcus R.</p>
+                <p class="text-sm text-gray-500">CTO, AI Automation Agency</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 text-center">
+          <p class="text-sm text-gray-500 uppercase tracking-wider mb-6">Works with your stack</p>
+          <div class="flex flex-wrap justify-center gap-8 text-gray-400">
+            <span class="text-lg font-mono">LangChain</span>
+            <span class="text-lg font-mono">CrewAI</span>
+            <span class="text-lg font-mono">AutoGen</span>
+            <span class="text-lg font-mono">LlamaIndex</span>
+            <span class="text-lg font-mono">OpenAI</span>
+            <span class="text-lg font-mono">Anthropic</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    """
+  end
+end

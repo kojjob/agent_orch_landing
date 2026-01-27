@@ -3,7 +3,7 @@ defmodule AgentOrchLandingWeb.Landing.PricingSection do
 
   def pricing_section(assigns) do
     ~H"""
-    <section class="px-6 py-20 lg:px-8 bg-gray-900/50">
+    <section id="pricing" class="px-6 py-20 lg:px-8 bg-gray-900/50">
       <div class="mx-auto max-w-5xl">
         <h2 class="text-center text-3xl font-bold tracking-tight sm:text-4xl text-white">
           Simple pricing, no surprises

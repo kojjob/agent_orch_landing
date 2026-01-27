@@ -8,7 +8,9 @@ defmodule AgentOrchLandingWeb.Endpoint do
     store: :cookie,
     key: "_agent_orch_landing_key",
     signing_salt: "uy4ET2aD",
-    same_site: "Lax"
+    encryption_salt: "k8Zt3mPx",
+    same_site: "Lax",
+    max_age: 86_400
   ]
 
   socket "/live", Phoenix.LiveView.Socket,

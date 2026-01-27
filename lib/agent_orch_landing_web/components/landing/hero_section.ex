@@ -35,7 +35,7 @@ defmodule AgentOrchLandingWeb.Landing.HeroSection do
                   type="email"
                   placeholder="you@company.com"
                   required
-                  class="bg-gray-800/80 border-gray-600 text-white placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors"
+                  class="py-2.5 px-4 bg-gray-800/80 border-gray-600 text-white placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors"
                 />
               </div>
               <button type="submit" class="rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:bg-indigo-500 hover:shadow-indigo-500/40 active:scale-[0.98] transition-all whitespace-nowrap">

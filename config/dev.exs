@@ -19,7 +19,7 @@ config :agent_orch_landing, AgentOrchLanding.Repo,
 config :agent_orch_landing, AgentOrchLandingWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}],
+  http: [ip: {127, 0, 0, 1}, http_1_options: [max_header_length: 65_536]],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,

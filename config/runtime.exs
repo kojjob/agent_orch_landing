@@ -21,7 +21,10 @@ if System.get_env("PHX_SERVER") do
 end
 
 config :agent_orch_landing, AgentOrchLandingWeb.Endpoint,
-  http: [port: String.to_integer(System.get_env("PORT", "4000"))]
+  http: [
+    port: String.to_integer(System.get_env("PORT", "4000")),
+    http_1_options: [max_header_length: 65_536]
+  ]
 
 if config_env() == :prod do
   database_url =

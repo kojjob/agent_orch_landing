@@ -23,14 +23,14 @@ defmodule AgentOrchLandingWeb.Landing.CtaSection do
           <%= if @submitted do %>
             <p class="text-green-400 font-semibold">You're on the waitlist! We'll be in touch.</p>
           <% else %>
-            <.form for={@form} phx-submit="submit_cta_email" class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+            <.form for={@form} phx-submit="submit_cta_email" class="flex flex-col sm:flex-row sm:items-start gap-3 justify-center max-w-md mx-auto [&_.fieldset]:mb-0">
               <div class="flex-1">
                 <.input
                   field={@form[:email]}
                   type="email"
                   placeholder="you@company.com"
                   required
-                  class="bg-gray-800/80 border-gray-600 text-white placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors"
+                  class="bg-gray-800/80 px-4 py-2.5 border-gray-600 text-white placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-colors"
                 />
               </div>
               <button type="submit" class="rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:bg-indigo-500 hover:shadow-indigo-500/40 active:scale-[0.98] transition-all whitespace-nowrap">

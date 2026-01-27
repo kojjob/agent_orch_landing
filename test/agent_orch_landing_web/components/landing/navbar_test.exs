@@ -53,7 +53,7 @@ defmodule AgentOrchLandingWeb.Landing.NavbarTest do
       {:ok, view, _html} = live(conn, "/")
       html = view |> element("#theme-toggle") |> render_click()
       # After toggle, the theme should be "light"
-      assert html =~ ~s(data-theme="light")
+      assert html =~ ~s(data-theme-value="light")
     end
   end
 end

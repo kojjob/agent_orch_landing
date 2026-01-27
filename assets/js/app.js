@@ -60,17 +60,23 @@ Hooks.ScrollReveal = {
   },
 }
 
-// Theme Toggle Hook — persists theme to localStorage and prevents flash
+// Theme Toggle Hook — syncs LiveView theme state with <html> data-theme and localStorage
 Hooks.ThemeToggle = {
   mounted() {
     const saved = localStorage.getItem("theme")
-    if (saved && saved !== this.el.dataset.theme) {
+    if (saved && saved !== this.el.dataset.themeValue) {
       this.pushEvent("set_theme", { theme: saved })
     }
+    this._applyTheme(this.el.dataset.themeValue)
   },
   updated() {
-    const theme = this.el.dataset.theme
-    if (theme) localStorage.setItem("theme", theme)
+    this._applyTheme(this.el.dataset.themeValue)
+  },
+  _applyTheme(theme) {
+    if (theme) {
+      document.documentElement.setAttribute("data-theme", theme)
+      localStorage.setItem("theme", theme)
+    }
   },
 }
 

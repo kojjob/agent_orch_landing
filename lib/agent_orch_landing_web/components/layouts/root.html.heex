@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,7 +24,7 @@
 
     <link phx-track-static rel="stylesheet" href={~p"/assets/css/app.css"} />
     <script>
-      (function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)})();
+      (function(){var t=localStorage.getItem("theme")||"dark";document.documentElement.setAttribute("data-theme",t)})();
     </script>
     <script defer phx-track-static type="text/javascript" src={~p"/assets/js/app.js"}>
     </script>

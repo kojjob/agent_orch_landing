@@ -37,6 +37,7 @@ defmodule AgentOrchLandingWeb.LandingLive do
      |> assign(:email_submitted, false)
      |> assign(:partner_submitted, false)
      |> assign(:mobile_menu_open, false)
+     |> assign(:theme, "dark")
      |> assign(:page_title, "AgentOrch — AI Agent Orchestration Platform")}
   end
 
@@ -118,6 +119,15 @@ defmodule AgentOrchLandingWeb.LandingLive do
     {:noreply, assign(socket, :mobile_menu_open, !socket.assigns.mobile_menu_open)}
   end
 
+  def handle_event("toggle_theme", _params, socket) do
+    new_theme = if socket.assigns.theme == "dark", do: "light", else: "dark"
+    {:noreply, assign(socket, :theme, new_theme)}
+  end
+
+  def handle_event("set_theme", %{"theme" => theme}, socket) when theme in ["dark", "light"] do
+    {:noreply, assign(socket, :theme, theme)}
+  end
+
   def handle_event("validate_partner", %{"design_partner" => params}, socket) do
     changeset =
       %DesignPartner{}
@@ -130,8 +140,8 @@ defmodule AgentOrchLandingWeb.LandingLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="min-h-screen bg-gray-950 text-white">
-      <.navbar mobile_menu_open={@mobile_menu_open} />
+    <div id="theme-root" phx-hook="ThemeToggle" class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white" data-theme={@theme}>
+      <.navbar mobile_menu_open={@mobile_menu_open} theme={@theme} />
       <div class="pt-16" id="scroll-reveal" phx-hook="ScrollReveal">
         <.hero_section headline={@headline} form={@email_form} submitted={@email_submitted} />
         <.problem_section />

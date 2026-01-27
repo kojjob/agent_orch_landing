@@ -245,5 +245,9 @@
 }
 
 .hover-shimmer:hover {
+  color: #1f2937;
+}
+
+[data-theme="dark"] .hover-shimmer:hover {
   color: white;
 }

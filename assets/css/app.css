@@ -103,3 +103,147 @@
 [data-phx-session], [data-phx-teleported-src] { display: contents }
 
 /* This file is for your main application CSS */
+
+/* ========== Scroll Reveal Animations ========== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hero entrance animation */
+@keyframes heroEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Elements hidden before reveal */
+[data-animate] {
+  opacity: 0;
+}
+
+[data-animate].is-visible {
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-animate="fade-up"].is-visible {
+  animation-name: fadeInUp;
+  animation-duration: 0.7s;
+}
+
+[data-animate="fade-in"].is-visible {
+  animation-name: fadeIn;
+  animation-duration: 0.6s;
+}
+
+[data-animate="scale-in"].is-visible {
+  animation-name: scaleIn;
+  animation-duration: 0.6s;
+}
+
+[data-animate="slide-left"].is-visible {
+  animation-name: slideInLeft;
+  animation-duration: 0.7s;
+}
+
+[data-animate="slide-right"].is-visible {
+  animation-name: slideInRight;
+  animation-duration: 0.7s;
+}
+
+[data-animate="hero"].is-visible {
+  animation-name: heroEntrance;
+  animation-duration: 0.9s;
+}
+
+/* ========== Hover Micro-interactions ========== */
+
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px -8px rgba(99, 102, 241, 0.15);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px -4px rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* Icon pulse on card hover */
+.group:hover .icon-pulse {
+  animation: iconPulse 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* Gradient shimmer for brand logos */
+.hover-shimmer {
+  transition: color 0.3s ease;
+}
+
+.hover-shimmer:hover {
+  color: white;
+}

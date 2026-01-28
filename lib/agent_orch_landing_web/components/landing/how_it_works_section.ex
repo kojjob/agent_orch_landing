@@ -24,15 +24,15 @@ defmodule AgentOrchLandingWeb.Landing.HowItWorksSection do
     assigns = assign(assigns, :code_snippet, @code_snippet)
 
     ~H"""
-    <section class="px-6 py-20 lg:px-8 bg-gray-900/50">
+    <section id="how-it-works" class="px-6 py-20 lg:px-8 bg-gray-900/50">
       <div class="mx-auto max-w-5xl">
-        <h2 class="text-center text-3xl font-bold tracking-tight sm:text-4xl text-white">
+        <h2 class="text-center text-3xl font-bold tracking-tight sm:text-4xl text-white" data-animate="fade-up">
           Up and running in 3 steps
         </h2>
 
         <div class="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div class="space-y-8">
-            <div class="flex gap-4">
+            <div class="flex gap-4" data-animate="slide-left" data-delay="150">
               <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-sm font-bold">1</div>
               <div>
                 <h3 class="text-lg font-semibold text-white">Define your agents</h3>
@@ -40,7 +40,7 @@ defmodule AgentOrchLandingWeb.Landing.HowItWorksSection do
               </div>
             </div>
 
-            <div class="flex gap-4">
+            <div class="flex gap-4" data-animate="slide-left" data-delay="300">
               <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-sm font-bold">2</div>
               <div>
                 <h3 class="text-lg font-semibold text-white">Build workflows</h3>
@@ -48,7 +48,7 @@ defmodule AgentOrchLandingWeb.Landing.HowItWorksSection do
               </div>
             </div>
 
-            <div class="flex gap-4">
+            <div class="flex gap-4" data-animate="slide-left" data-delay="450">
               <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-sm font-bold">3</div>
               <div>
                 <h3 class="text-lg font-semibold text-white">Deploy & observe</h3>
@@ -57,7 +57,7 @@ defmodule AgentOrchLandingWeb.Landing.HowItWorksSection do
             </div>
           </div>
 
-          <div class="rounded-xl bg-gray-800 p-6 ring-1 ring-gray-700">
+          <div class="rounded-xl bg-gray-800 p-6 ring-1 ring-gray-700 hover-glow" data-animate="slide-right" data-delay="200">
             <div class="flex items-center gap-2 mb-4">
               <div class="h-3 w-3 rounded-full bg-red-500"></div>
               <div class="h-3 w-3 rounded-full bg-yellow-500"></div>

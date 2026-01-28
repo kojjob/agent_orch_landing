@@ -3,17 +3,17 @@ defmodule AgentOrchLandingWeb.Landing.PricingSection do
 
   def pricing_section(assigns) do
     ~H"""
-    <section class="px-6 py-20 lg:px-8 bg-gray-900/50">
+    <section id="pricing" class="px-6 py-20 lg:px-8 bg-gray-900/50">
       <div class="mx-auto max-w-5xl">
-        <h2 class="text-center text-3xl font-bold tracking-tight sm:text-4xl text-white">
+        <h2 class="text-center text-3xl font-bold tracking-tight sm:text-4xl text-white" data-animate="fade-up">
           Simple pricing, no surprises
         </h2>
-        <p class="mt-4 text-center text-gray-400 text-lg">
+        <p class="mt-4 text-center text-gray-400 text-lg" data-animate="fade-up" data-delay="100">
           Start free. Scale when you're ready.
         </p>
 
         <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
-          <div class="rounded-xl bg-gray-800/50 p-8 ring-1 ring-gray-700/50">
+          <div class="rounded-xl bg-gray-800/50 p-8 ring-1 ring-gray-700/50 hover-lift" data-animate="fade-up" data-delay="150">
             <h3 class="text-lg font-semibold text-white">Free</h3>
             <p class="mt-2 text-4xl font-bold text-white">$0</p>
             <p class="text-sm text-gray-500">forever</p>
@@ -25,7 +25,7 @@ defmodule AgentOrchLandingWeb.Landing.PricingSection do
             </ul>
           </div>
 
-          <div class="rounded-xl bg-gray-800/50 p-8 ring-2 ring-indigo-500">
+          <div class="rounded-xl bg-gray-800/50 p-8 ring-2 ring-indigo-500 hover-lift" data-animate="scale-in" data-delay="300">
             <div class="flex items-center justify-between">
               <h3 class="text-lg font-semibold text-white">Pro</h3>
               <span class="rounded-full bg-indigo-600 px-3 py-1 text-xs font-semibold">Popular</span>
@@ -41,7 +41,7 @@ defmodule AgentOrchLandingWeb.Landing.PricingSection do
             </ul>
           </div>
 
-          <div class="rounded-xl bg-gray-800/50 p-8 ring-1 ring-gray-700/50">
+          <div class="rounded-xl bg-gray-800/50 p-8 ring-1 ring-gray-700/50 hover-lift" data-animate="fade-up" data-delay="450">
             <h3 class="text-lg font-semibold text-white">Enterprise</h3>
             <p class="mt-2 text-4xl font-bold text-white">Custom</p>
             <p class="text-sm text-gray-500">talk to us</p>

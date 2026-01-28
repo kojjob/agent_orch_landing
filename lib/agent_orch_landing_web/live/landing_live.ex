@@ -11,6 +11,8 @@ defmodule AgentOrchLandingWeb.LandingLive do
   import AgentOrchLandingWeb.Landing.SocialProofSection
   import AgentOrchLandingWeb.Landing.PricingSection
   import AgentOrchLandingWeb.Landing.CtaSection
+  import AgentOrchLandingWeb.Landing.Navbar
+  import AgentOrchLandingWeb.Landing.Footer
 
   @headlines %{
     "v1" => "Stop Flying Blind with Your AI Agents",
@@ -34,6 +36,7 @@ defmodule AgentOrchLandingWeb.LandingLive do
      |> assign(:show_partner_modal, false)
      |> assign(:email_submitted, false)
      |> assign(:partner_submitted, false)
+     |> assign(:mobile_menu_open, false)
      |> assign(:page_title, "AgentOrch — AI Agent Orchestration Platform")}
   end
 
@@ -111,6 +114,10 @@ defmodule AgentOrchLandingWeb.LandingLive do
     {:noreply, assign(socket, :email_form, to_form(changeset, id: "hero_email"))}
   end
 
+  def handle_event("toggle_mobile_menu", _params, socket) do
+    {:noreply, assign(socket, :mobile_menu_open, !socket.assigns.mobile_menu_open)}
+  end
+
   def handle_event("validate_partner", %{"design_partner" => params}, socket) do
     changeset =
       %DesignPartner{}
@@ -124,19 +131,23 @@ defmodule AgentOrchLandingWeb.LandingLive do
   def render(assigns) do
     ~H"""
     <div class="min-h-screen bg-gray-950 text-white">
-      <.hero_section headline={@headline} form={@email_form} submitted={@email_submitted} />
-      <.problem_section />
-      <.solution_section />
-      <.how_it_works_section />
-      <.social_proof_section />
-      <.pricing_section />
-      <.cta_section
-        form={@cta_email_form}
-        submitted={@email_submitted}
-        show_partner_modal={@show_partner_modal}
-        partner_form={@partner_form}
-        partner_submitted={@partner_submitted}
-      />
+      <.navbar mobile_menu_open={@mobile_menu_open} />
+      <div class="pt-16" id="scroll-reveal" phx-hook="ScrollReveal">
+        <.hero_section headline={@headline} form={@email_form} submitted={@email_submitted} />
+        <.problem_section />
+        <.solution_section />
+        <.how_it_works_section />
+        <.social_proof_section />
+        <.pricing_section />
+        <.cta_section
+          form={@cta_email_form}
+          submitted={@email_submitted}
+          show_partner_modal={@show_partner_modal}
+          partner_form={@partner_form}
+          partner_submitted={@partner_submitted}
+        />
+      </div>
+      <.footer />
     </div>
     """
   end

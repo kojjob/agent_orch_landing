@@ -42,6 +42,11 @@ COPY lib lib
 
 COPY assets assets
 
+# install Node.js and npm dependencies for JS packages (e.g. motion)
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install --prefix assets --production
+
 # Copy pre-downloaded tailwind and esbuild binaries (Depot builder can't reach GitHub)
 COPY _build_cache/tailwind-linux-x64 _build/tailwind-linux-x64
 RUN chmod +x _build/tailwind-linux-x64

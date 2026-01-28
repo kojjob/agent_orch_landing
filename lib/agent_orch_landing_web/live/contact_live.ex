@@ -5,29 +5,42 @@ defmodule AgentOrchLandingWeb.ContactLive do
   import AgentOrchLandingWeb.Landing.Navbar
   import AgentOrchLandingWeb.Landing.Footer
 
+  alias AgentOrchLanding.Leads
+  alias AgentOrchLanding.Leads.ContactSubmission
+
   @impl true
   def mount(_params, _session, socket) do
+    changeset = Leads.change_contact_submission(%ContactSubmission{})
+
     {:ok,
      socket
      |> assign(:mobile_menu_open, false)
      |> assign(:theme, "dark")
      |> assign(:page_title, "Contact — AgentOrch")
-     |> assign(:contact_form, to_form(%{"name" => "", "email" => "", "subject" => "", "message" => ""}, as: "contact"))
+     |> assign(:contact_form, to_form(changeset, as: "contact"))
      |> assign(:contact_submitted, false)}
   end
 
+  def handle_event("validate_contact", %{"contact" => params}, socket) do
+    changeset =
+      %ContactSubmission{}
+      |> ContactSubmission.changeset(params)
+      |> Map.put(:action, :validate)
+
+    {:noreply, assign(socket, :contact_form, to_form(changeset, as: "contact"))}
+  end
+
   def handle_event("submit_contact", %{"contact" => params}, socket) do
-    case AgentOrchLanding.Leads.create_contact_submission(params) do
+    case Leads.create_contact_submission(params) do
       {:ok, _submission} ->
         {:noreply,
          socket
          |> assign(:contact_submitted, true)
          |> put_flash(:info, "Message sent! We'll get back to you soon.")}
 
-      {:error, _changeset} ->
+      {:error, changeset} ->
         {:noreply,
-         socket
-         |> put_flash(:error, "Something went wrong. Please try again.")}
+         assign(socket, :contact_form, to_form(changeset, as: "contact"))}
     end
   end
 
@@ -145,54 +158,56 @@ defmodule AgentOrchLandingWeb.ContactLive do
                     </div>
                   <% else %>
                     <h3 class="text-xl font-semibold mb-6">Send us a message</h3>
-                    <.form for={@contact_form} phx-submit="submit_contact" class="space-y-5">
+                    <.form for={@contact_form} phx-submit="submit_contact" phx-change="validate_contact" class="space-y-5">
                       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
                           <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
                           <input
                             type="text"
                             name="contact[name]"
-                            required
+                            value={@contact_form[:name].value}
                             placeholder="Your name"
-                            class="w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
+                            class={"w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:outline-none transition-all text-sm #{if @contact_form[:name].errors != [], do: "border-red-500 focus:border-red-500 focus:ring-red-500/20", else: "border-gray-300 dark:border-gray-700 focus:border-indigo-500 focus:ring-indigo-500/20"}"}
                           />
+                          <.field_errors errors={@contact_form[:name].errors} />
                         </div>
                         <div>
                           <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
                           <input
                             type="email"
                             name="contact[email]"
-                            required
+                            value={@contact_form[:email].value}
                             placeholder="you@company.com"
-                            class="w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
+                            class={"w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:outline-none transition-all text-sm #{if @contact_form[:email].errors != [], do: "border-red-500 focus:border-red-500 focus:ring-red-500/20", else: "border-gray-300 dark:border-gray-700 focus:border-indigo-500 focus:ring-indigo-500/20"}"}
                           />
+                          <.field_errors errors={@contact_form[:email].errors} />
                         </div>
                       </div>
                       <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
                         <select
                           name="contact[subject]"
-                          required
-                          class="w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
+                          class={"w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border text-gray-900 dark:text-white focus:ring-2 focus:outline-none transition-all text-sm #{if @contact_form[:subject].errors != [], do: "border-red-500 focus:border-red-500 focus:ring-red-500/20", else: "border-gray-300 dark:border-gray-700 focus:border-indigo-500 focus:ring-indigo-500/20"}"}
                         >
                           <option value="">Select a topic...</option>
-                          <option value="general">General Inquiry</option>
-                          <option value="demo">Request a Demo</option>
-                          <option value="partnership">Partnership</option>
-                          <option value="enterprise">Enterprise Plan</option>
-                          <option value="support">Technical Support</option>
-                          <option value="press">Press & Media</option>
+                          <option value="general" selected={@contact_form[:subject].value == "general"}>General Inquiry</option>
+                          <option value="demo" selected={@contact_form[:subject].value == "demo"}>Request a Demo</option>
+                          <option value="partnership" selected={@contact_form[:subject].value == "partnership"}>Partnership</option>
+                          <option value="enterprise" selected={@contact_form[:subject].value == "enterprise"}>Enterprise Plan</option>
+                          <option value="support" selected={@contact_form[:subject].value == "support"}>Technical Support</option>
+                          <option value="press" selected={@contact_form[:subject].value == "press"}>Press & Media</option>
                         </select>
+                        <.field_errors errors={@contact_form[:subject].errors} />
                       </div>
                       <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
                         <textarea
                           name="contact[message]"
                           rows="5"
-                          required
                           placeholder="Tell us how we can help..."
-                          class="w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm resize-none"
-                        ></textarea>
+                          class={"w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:outline-none transition-all text-sm resize-none #{if @contact_form[:message].errors != [], do: "border-red-500 focus:border-red-500 focus:ring-red-500/20", else: "border-gray-300 dark:border-gray-700 focus:border-indigo-500 focus:ring-indigo-500/20"}"}
+                        >{@contact_form[:message].value}</textarea>
+                        <.field_errors errors={@contact_form[:message].errors} />
                       </div>
                       <button type="submit" class="w-full rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:brightness-110 active:scale-[0.97] transition-all">
                         Send Message →
@@ -247,6 +262,14 @@ defmodule AgentOrchLandingWeb.ContactLive do
       </div>
       <.footer />
     </div>
+    """
+  end
+
+  defp field_errors(assigns) do
+    ~H"""
+    <%= for {msg, _opts} <- @errors do %>
+      <p class="mt-1 text-xs text-red-600 dark:text-red-400"><%= msg %></p>
+    <% end %>
     """
   end
 

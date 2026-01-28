@@ -20,8 +20,22 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
        accept: ~w(.jpg .jpeg .png .gif .webp),
        max_entries: 1,
        max_file_size: 5_000_000,
-       auto_upload: true
+       auto_upload: true,
+       progress: &handle_inline_progress/3
      )}
+  end
+
+  defp handle_inline_progress(:inline_image, entry, socket) do
+    if entry.done? do
+      url = Upload.save_upload(socket, :inline_image)
+
+      {:noreply,
+       socket
+       |> assign(:inline_image_url, url)
+       |> push_event("insert_inline_image", %{url: url})}
+    else
+      {:noreply, socket}
+    end
   end
 
   @impl true
@@ -89,16 +103,6 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
      socket
      |> assign(:post, updated_post)
      |> assign(:form, to_form(changeset))}
-  end
-
-  @impl true
-  def handle_event("save_inline_image", _params, socket) do
-    url = Upload.save_upload(socket, :inline_image)
-
-    {:noreply,
-     socket
-     |> assign(:inline_image_url, url)
-     |> push_event("insert_inline_image", %{url: url})}
   end
 
   @impl true
@@ -325,33 +329,31 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
 
                 <div :for={entry <- @uploads.inline_image.entries} class="mt-2">
                   <.live_img_preview entry={entry} class="h-24 rounded-md object-cover" />
-                  <button
-                    type="button"
-                    phx-click="save_inline_image"
-                    class="mt-1 text-sm text-indigo-600 hover:text-indigo-500"
-                  >
-                    Upload &amp; get markdown
-                  </button>
-                  <button
-                    type="button"
-                    phx-click="cancel-upload"
-                    phx-value-ref={entry.ref}
-                    phx-value-upload="inline_image"
-                    class="mt-1 ml-2 text-sm text-red-600"
-                  >
-                    Cancel
-                  </button>
+                  <div class="flex items-center gap-3 mt-1">
+                    <div class="flex-1 bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-indigo-600 h-2 rounded-full transition-all"
+                        style={"width: #{entry.progress}%"}
+                      >
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      phx-click="cancel-upload"
+                      phx-value-ref={entry.ref}
+                      phx-value-upload="inline_image"
+                      class="text-sm text-red-600"
+                    >
+                      Cancel
+                    </button>
+                  </div>
                 </div>
 
                 <div
                   :if={@inline_image_url}
-                  class="mt-2 p-2 bg-white rounded border text-sm font-mono break-all"
+                  class="mt-2 p-2 bg-white rounded border text-sm text-green-700"
                 >
-                  <span class="text-gray-500">Copy this into your markdown body:</span>
-                  <br />
-                  <code class="select-all text-indigo-700">
-                    ![image]({@inline_image_url})
-                  </code>
+                  Image inserted into body.
                 </div>
               </div>
             </div>

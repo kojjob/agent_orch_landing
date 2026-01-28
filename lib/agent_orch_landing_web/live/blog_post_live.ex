@@ -32,7 +32,58 @@ defmodule AgentOrchLandingWeb.BlogPostLive do
     >
       <.navbar mobile_menu_open={@mobile_menu_open} theme={@theme} />
       <div class="pt-16" id="scroll-reveal" phx-hook="ScrollReveal">
-        <article class="px-6 py-24 sm:py-32 lg:px-8">
+        <%!-- Hero featured image --%>
+        <div
+          :if={@post.featured_image}
+          class="relative h-[60vh] min-h-96 w-full overflow-hidden"
+          data-animate="fade-in"
+        >
+          <img
+            src={@post.featured_image}
+            alt={@post.title}
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-gray-950/40 to-gray-950/10">
+          </div>
+          <div class="absolute inset-x-0 bottom-0 px-6 pb-12 lg:px-8">
+            <div class="mx-auto max-w-3xl">
+              <a
+                href="/blog"
+                class="inline-flex items-center text-sm text-white/70 hover:text-white transition-colors mb-6"
+              >
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 19.5L8.25 12l7.5-7.5"
+                  />
+                </svg>
+                Back to Blog
+              </a>
+              <h1 class="font-[Space_Grotesk] text-4xl font-bold tracking-tight sm:text-5xl text-white">
+                {@post.title}
+              </h1>
+              <div class="mt-4 flex items-center gap-3 text-sm text-white/70">
+                <span>{@post.author}</span>
+                <%= if @post.published_at do %>
+                  <span>&middot;</span>
+                  <time datetime={DateTime.to_iso8601(@post.published_at)}>
+                    {Calendar.strftime(@post.published_at, "%B %d, %Y")}
+                  </time>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <%!-- Fallback header when no featured image --%>
+        <div :if={!@post.featured_image} class="px-6 py-24 sm:py-32 lg:px-8">
           <div class="mx-auto max-w-3xl">
             <a
               href="/blog"
@@ -45,7 +96,11 @@ defmodule AgentOrchLandingWeb.BlogPostLive do
                 stroke-width="1.5"
                 stroke="currentColor"
               >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
               </svg>
               Back to Blog
             </a>
@@ -61,13 +116,12 @@ defmodule AgentOrchLandingWeb.BlogPostLive do
                 </time>
               <% end %>
             </div>
-            <img
-              :if={@post.featured_image}
-              src={@post.featured_image}
-              alt={@post.title}
-              class="mt-8 w-full rounded-xl object-cover max-h-96"
-            />
-            <div class="mt-10 prose prose-lg dark:prose-invert max-w-none prose-headings:font-[Space_Grotesk] prose-a:text-indigo-600 dark:prose-a:text-indigo-400">
+          </div>
+        </div>
+
+        <article class="px-6 py-16 lg:px-8">
+          <div class="mx-auto max-w-3xl">
+            <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-[Space_Grotesk] prose-a:text-indigo-600 dark:prose-a:text-indigo-400">
               {Phoenix.HTML.raw(render_markdown(@post.body))}
             </div>
           </div>

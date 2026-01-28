@@ -158,7 +158,7 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="min-h-screen bg-gray-50 p-8">
+    <div class="min-h-screen bg-gray-50 text-gray-900 p-8" data-theme="light">
       <div class="mx-auto max-w-4xl">
         <div class="mb-8">
           <a href="/admin/blog" class="text-sm text-indigo-600 hover:text-indigo-500">

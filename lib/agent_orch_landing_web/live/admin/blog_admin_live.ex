@@ -22,7 +22,7 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="min-h-screen bg-gray-50 p-8">
+    <div class="min-h-screen bg-gray-50 text-gray-900 p-8" data-theme="light">
       <div class="mx-auto max-w-4xl">
         <div class="flex items-center justify-between mb-8">
           <h1 class="text-3xl font-bold text-gray-900">Blog Admin</h1>

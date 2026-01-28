@@ -41,7 +41,7 @@ defmodule AgentOrchLandingWeb.BlogPostLive do
           aria-label={@post.title}
           data-animate="fade-in"
         >
-          <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-gray-950/40 to-gray-950/10">
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/70 to-gray-950/30">
           </div>
           <div class="absolute inset-x-0 bottom-0 px-6 pb-12 lg:px-8">
             <div class="mx-auto max-w-3xl">

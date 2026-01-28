@@ -89,4 +89,6 @@ config :phoenix_live_view,
   enable_expensive_runtime_checks: true
 
 # Disable swoosh api client as it is only required for production adapters.
+config :agent_orch_landing, :admin_auth, username: "admin", password: "admin"
+
 config :swoosh, :api_client, false

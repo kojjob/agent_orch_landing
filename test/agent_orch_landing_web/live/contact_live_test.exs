@@ -118,8 +118,9 @@ defmodule AgentOrchLandingWeb.ContactLiveTest do
       {:ok, view, _html} = live(conn, "/contact")
 
       html = view |> element("button[phx-click='toggle_mobile_menu']") |> render_click()
-      assert html =~ "mobile_menu_open"
-             or html =~ "About"
+
+      assert html =~ "mobile_menu_open" or
+               html =~ "About"
     end
 
     test "theme toggle works", %{conn: conn} do

@@ -52,8 +52,8 @@ defmodule AgentOrchLandingWeb.AboutLiveTest do
 
       html = view |> element("button[phx-click='toggle_mobile_menu']") |> render_click()
       # After toggling, mobile menu should be open (content becomes visible)
-      assert html =~ "mobile_menu_open"
-             or html =~ "About"
+      assert html =~ "mobile_menu_open" or
+               html =~ "About"
     end
 
     test "theme toggle works", %{conn: conn} do

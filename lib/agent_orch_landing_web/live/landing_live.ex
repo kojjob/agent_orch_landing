@@ -31,8 +31,14 @@ defmodule AgentOrchLandingWeb.LandingLive do
      socket
      |> assign(:variant, variant)
      |> assign(:headline, headline)
-     |> assign(:email_form, to_form(Leads.change_email_capture(%EmailCapture{}), id: "hero_email"))
-     |> assign(:cta_email_form, to_form(Leads.change_email_capture(%EmailCapture{}), id: "cta_email"))
+     |> assign(
+       :email_form,
+       to_form(Leads.change_email_capture(%EmailCapture{}), id: "hero_email")
+     )
+     |> assign(
+       :cta_email_form,
+       to_form(Leads.change_email_capture(%EmailCapture{}), id: "cta_email")
+     )
      |> assign(:partner_form, to_form(Leads.change_design_partner(%DesignPartner{})))
      |> assign(:show_partner_modal, false)
      |> assign(:email_submitted, false)
@@ -40,7 +46,10 @@ defmodule AgentOrchLandingWeb.LandingLive do
      |> assign(:mobile_menu_open, false)
      |> assign(:theme, "dark")
      |> assign(:page_title, "AgentOrch — AI Agent Orchestration Platform")
-     |> assign(:page_description, "AgentOrch — the orchestration platform for AI agent teams. Monitor, coordinate, and scale your AI agents from prototype to production.")
+     |> assign(
+       :page_description,
+       "AgentOrch — the orchestration platform for AI agent teams. Monitor, coordinate, and scale your AI agents from prototype to production."
+     )
      |> assign(:og_title, "AgentOrch — AI Agent Orchestration Platform")}
   end
 
@@ -64,7 +73,10 @@ defmodule AgentOrchLandingWeb.LandingLive do
         {:noreply,
          socket
          |> assign(:email_submitted, true)
-         |> assign(:email_form, to_form(Leads.change_email_capture(%EmailCapture{}), id: "hero_email"))
+         |> assign(
+           :email_form,
+           to_form(Leads.change_email_capture(%EmailCapture{}), id: "hero_email")
+         )
          |> put_flash(:info, "You're on the list!")}
 
       {:error, changeset} ->
@@ -128,7 +140,12 @@ defmodule AgentOrchLandingWeb.LandingLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div id="theme-root" phx-hook="ThemeToggle" class="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white" data-theme-value={@theme}>
+    <div
+      id="theme-root"
+      phx-hook="ThemeToggle"
+      class="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white"
+      data-theme-value={@theme}
+    >
       <.navbar mobile_menu_open={@mobile_menu_open} theme={@theme} />
       <div class="pt-16" id="scroll-reveal" phx-hook="ScrollReveal">
         <.hero_section headline={@headline} form={@email_form} submitted={@email_submitted} />

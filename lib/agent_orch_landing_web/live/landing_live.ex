@@ -1,5 +1,6 @@
 defmodule AgentOrchLandingWeb.LandingLive do
   use AgentOrchLandingWeb, :live_view
+  use AgentOrchLandingWeb.SharedEvents
 
   alias AgentOrchLanding.Leads
   alias AgentOrchLanding.Leads.{EmailCapture, DesignPartner}
@@ -111,19 +112,6 @@ defmodule AgentOrchLandingWeb.LandingLive do
       |> Map.put(:action, :validate)
 
     {:noreply, assign(socket, :email_form, to_form(changeset, id: "hero_email"))}
-  end
-
-  def handle_event("toggle_mobile_menu", _params, socket) do
-    {:noreply, assign(socket, :mobile_menu_open, !socket.assigns.mobile_menu_open)}
-  end
-
-  def handle_event("toggle_theme", _params, socket) do
-    new_theme = if socket.assigns.theme == "dark", do: "light", else: "dark"
-    {:noreply, assign(socket, :theme, new_theme)}
-  end
-
-  def handle_event("set_theme", %{"theme" => theme}, socket) when theme in ["dark", "light"] do
-    {:noreply, assign(socket, :theme, theme)}
   end
 
   def handle_event("validate_partner", %{"design_partner" => params}, socket) do

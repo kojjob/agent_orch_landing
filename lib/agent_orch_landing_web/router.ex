@@ -19,6 +19,12 @@ defmodule AgentOrchLandingWeb.Router do
     plug :admin_basic_auth
   end
 
+  scope "/admin" do
+    pipe_through [:browser, :admin]
+
+    get "/", AgentOrchLandingWeb.AdminRedirectPlug, []
+  end
+
   scope "/admin", AgentOrchLandingWeb.Admin do
     pipe_through [:browser, :admin]
 

@@ -32,7 +32,9 @@ defmodule AgentOrchLandingWeb.ContactLive do
 
   def handle_event("submit_contact", %{"contact" => params}, socket) do
     case Leads.create_contact_submission(params) do
-      {:ok, _submission} ->
+      {:ok, submission} ->
+        AgentOrchLanding.Notifications.ContactNotifier.submission_received(submission)
+
         {:noreply,
          socket
          |> assign(:contact_submitted, true)

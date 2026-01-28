@@ -2,6 +2,7 @@ defmodule AgentOrchLandingWeb.ContactLiveTest do
   use AgentOrchLandingWeb.ConnCase, async: true
 
   import Phoenix.LiveViewTest
+  import Swoosh.TestAssertions
 
   describe "contact page" do
     test "renders hero heading", %{conn: conn} do
@@ -49,6 +50,9 @@ defmodule AgentOrchLandingWeb.ContactLiveTest do
       assert sub.email == "test@example.com"
       assert sub.subject == "general"
       assert sub.message == "Hello there"
+
+      # Verify notification email was sent
+      assert_received {:email, %Swoosh.Email{subject: "New contact submission from Test User"}}
     end
 
     test "shows validation errors on change with invalid data", %{conn: conn} do

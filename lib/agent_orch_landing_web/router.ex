@@ -19,6 +19,8 @@ defmodule AgentOrchLandingWeb.Router do
     pipe_through :browser
 
     live "/", LandingLive, :index
+    live "/about", AboutLive, :index
+    live "/contact", ContactLive, :index
   end
 
   if Application.compile_env(:agent_orch_landing, :dev_routes) do

@@ -18,9 +18,11 @@ defmodule AgentOrchLandingWeb.Landing.Navbar do
 
           <%!-- Desktop Nav Links --%>
           <div class="hidden md:flex items-center gap-8">
-            <a href="#solution" class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Features</a>
-            <a href="#how-it-works" class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">How It Works</a>
-            <a href="#pricing" class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Pricing</a>
+            <a href="/#solution" class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Features</a>
+            <a href="/#how-it-works" class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">How It Works</a>
+            <a href="/#pricing" class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Pricing</a>
+            <a href="/about" class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">About</a>
+            <a href="/contact" class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
           </div>
 
           <%!-- Desktop CTA + Theme Toggle --%>
@@ -41,7 +43,7 @@ defmodule AgentOrchLandingWeb.Landing.Navbar do
                 </svg>
               <% end %>
             </button>
-            <a href="#hero" class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition-colors">
+            <a href="/#hero" class="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white hover:brightness-110 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all">
               Join Waitlist
             </a>
           </div>
@@ -84,10 +86,12 @@ defmodule AgentOrchLandingWeb.Landing.Navbar do
       <%= if @mobile_menu_open do %>
         <div id="mobile-menu" class="md:hidden border-t border-gray-200 dark:border-gray-800/50 bg-white/95 dark:bg-gray-950/95 backdrop-blur-lg">
           <div class="px-6 py-4 space-y-3">
-            <a href="#solution" class="block text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Features</a>
-            <a href="#how-it-works" class="block text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">How It Works</a>
-            <a href="#pricing" class="block text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Pricing</a>
-            <a href="#hero" class="mt-3 block rounded-lg bg-indigo-600 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-indigo-500 transition-colors">
+            <a href="/#solution" class="block text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Features</a>
+            <a href="/#how-it-works" class="block text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">How It Works</a>
+            <a href="/#pricing" class="block text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Pricing</a>
+            <a href="/about" class="block text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">About</a>
+            <a href="/contact" class="block text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+            <a href="/#hero" class="mt-3 block rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2.5 text-center text-sm font-semibold text-white hover:brightness-110 shadow-lg shadow-indigo-500/25 transition-all">
               Join Waitlist
             </a>
           </div>

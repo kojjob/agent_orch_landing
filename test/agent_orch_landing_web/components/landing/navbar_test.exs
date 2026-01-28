@@ -19,9 +19,9 @@ defmodule AgentOrchLandingWeb.Landing.NavbarTest do
 
     test "renders anchor links to sections", %{conn: conn} do
       {:ok, _view, html} = live(conn, "/")
-      assert html =~ ~s(href="#solution")
-      assert html =~ ~s(href="#how-it-works")
-      assert html =~ ~s(href="#pricing")
+      assert html =~ ~s(href="/#solution")
+      assert html =~ ~s(href="/#how-it-works")
+      assert html =~ ~s(href="/#pricing")
     end
 
     test "renders Join Waitlist CTA in navbar", %{conn: conn} do

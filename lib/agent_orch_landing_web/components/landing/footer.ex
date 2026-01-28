@@ -31,8 +31,8 @@ defmodule AgentOrchLandingWeb.Landing.Footer do
           <div>
             <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Product</h3>
             <ul class="mt-4 space-y-3">
-              <li><a href="#solution" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Features</a></li>
-              <li><a href="#pricing" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Pricing</a></li>
+              <li><a href="/#solution" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Features</a></li>
+              <li><a href="/#pricing" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Pricing</a></li>
               <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Roadmap</a></li>
               <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Changelog</a></li>
             </ul>
@@ -42,10 +42,10 @@ defmodule AgentOrchLandingWeb.Landing.Footer do
           <div>
             <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Company</h3>
             <ul class="mt-4 space-y-3">
-              <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">About</a></li>
+              <li><a href="/about" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">About</a></li>
               <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Blog</a></li>
               <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/contact" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
 

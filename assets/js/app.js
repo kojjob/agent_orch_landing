@@ -24,33 +24,59 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
-// Scroll Reveal Hook — triggers CSS animations via IntersectionObserver
+import { animate, inView } from "motion"
+
+// Animation presets using Motion One spring physics
+const animations = {
+  "fade-up": { opacity: [0, 1], transform: ["translateY(24px)", "translateY(0)"] },
+  "fade-in": { opacity: [0, 1] },
+  "scale-in": { opacity: [0, 1], transform: ["scale(0.95)", "scale(1)"] },
+  "slide-left": { opacity: [0, 1], transform: ["translateX(-24px)", "translateX(0)"] },
+  "slide-right": { opacity: [0, 1], transform: ["translateX(24px)", "translateX(0)"] },
+  "hero": { opacity: [0, 1], transform: ["translateY(32px) scale(0.97)", "translateY(0) scale(1)"] },
+}
+
 const Hooks = {}
 
 Hooks.ScrollReveal = {
   mounted() {
     const elements = this.el.querySelectorAll("[data-animate]")
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const delay = entry.target.dataset.delay || "0"
-            entry.target.style.animationDelay = `${delay}ms`
-            entry.target.classList.add("is-visible")
-            observer.unobserve(entry.target)
-          }
+    elements.forEach((el) => {
+      el.style.opacity = "0"
+
+      inView(el, () => {
+        const type = el.dataset.animate || "fade-up"
+        const delay = parseInt(el.dataset.delay || "0", 10) / 1000
+        const keyframes = animations[type] || animations["fade-up"]
+
+        animate(el, keyframes, {
+          duration: type === "hero" ? 0.9 : 0.7,
+          delay,
+          easing: [0.22, 1, 0.36, 1],
         })
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    )
-
-    elements.forEach((el) => observer.observe(el))
-
-    this.observer = observer
+      }, { margin: "0px 0px -40px 0px" })
+    })
   },
-  destroyed() {
-    if (this.observer) this.observer.disconnect()
+}
+
+// Theme Toggle Hook — syncs LiveView theme state with <html> data-theme and localStorage
+Hooks.ThemeToggle = {
+  mounted() {
+    const saved = localStorage.getItem("theme")
+    if (saved && saved !== this.el.dataset.themeValue) {
+      this.pushEvent("set_theme", { theme: saved })
+    }
+    this._applyTheme(this.el.dataset.themeValue)
+  },
+  updated() {
+    this._applyTheme(this.el.dataset.themeValue)
+  },
+  _applyTheme(theme) {
+    if (theme) {
+      document.documentElement.setAttribute("data-theme", theme)
+      localStorage.setItem("theme", theme)
+    }
   },
 }
 

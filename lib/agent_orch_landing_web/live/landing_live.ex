@@ -39,7 +39,9 @@ defmodule AgentOrchLandingWeb.LandingLive do
      |> assign(:partner_submitted, false)
      |> assign(:mobile_menu_open, false)
      |> assign(:theme, "dark")
-     |> assign(:page_title, "AgentOrch — AI Agent Orchestration Platform")}
+     |> assign(:page_title, "AgentOrch — AI Agent Orchestration Platform")
+     |> assign(:page_description, "AgentOrch — the orchestration platform for AI agent teams. Monitor, coordinate, and scale your AI agents from prototype to production.")
+     |> assign(:og_title, "AgentOrch — AI Agent Orchestration Platform")}
   end
 
   @impl true

@@ -2,7 +2,6 @@ defmodule AgentOrchLandingWeb.ContactLiveTest do
   use AgentOrchLandingWeb.ConnCase, async: true
 
   import Phoenix.LiveViewTest
-  import Swoosh.TestAssertions
 
   describe "contact page" do
     test "renders hero heading", %{conn: conn} do

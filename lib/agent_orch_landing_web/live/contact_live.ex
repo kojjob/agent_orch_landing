@@ -17,6 +17,8 @@ defmodule AgentOrchLandingWeb.ContactLive do
      |> assign(:mobile_menu_open, false)
      |> assign(:theme, "dark")
      |> assign(:page_title, "Contact — AgentOrch")
+     |> assign(:page_description, "Get in touch with the AgentOrch team. Questions, partnerships, demos, and support.")
+     |> assign(:og_title, "Contact — AgentOrch")
      |> assign(:contact_form, to_form(changeset, as: "contact"))
      |> assign(:contact_submitted, false)}
   end

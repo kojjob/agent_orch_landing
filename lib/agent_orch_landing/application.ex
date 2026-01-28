@@ -10,7 +10,8 @@ defmodule AgentOrchLanding.Application do
     children = [
       AgentOrchLandingWeb.Telemetry,
       AgentOrchLanding.Repo,
-      {DNSCluster, query: Application.get_env(:agent_orch_landing, :dns_cluster_query) || :ignore},
+      {DNSCluster,
+       query: Application.get_env(:agent_orch_landing, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: AgentOrchLanding.PubSub},
       # Start a worker by calling: AgentOrchLanding.Worker.start_link(arg)
       # {AgentOrchLanding.Worker, arg},

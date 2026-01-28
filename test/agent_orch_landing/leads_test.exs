@@ -56,7 +56,9 @@ defmodule AgentOrchLanding.LeadsTest do
     }
 
     test "create_contact_submission/1 with valid data creates a submission" do
-      assert {:ok, %Leads.ContactSubmission{} = sub} = Leads.create_contact_submission(@valid_attrs)
+      assert {:ok, %Leads.ContactSubmission{} = sub} =
+               Leads.create_contact_submission(@valid_attrs)
+
       assert sub.name == "Jane Doe"
       assert sub.email == "jane@example.com"
       assert sub.subject == "general"
@@ -65,7 +67,9 @@ defmodule AgentOrchLanding.LeadsTest do
     end
 
     test "create_contact_submission/1 downcases and trims email" do
-      assert {:ok, sub} = Leads.create_contact_submission(%{@valid_attrs | email: "  JANE@Example.COM  "})
+      assert {:ok, sub} =
+               Leads.create_contact_submission(%{@valid_attrs | email: "  JANE@Example.COM  "})
+
       assert sub.email == "jane@example.com"
     end
 
@@ -85,7 +89,10 @@ defmodule AgentOrchLanding.LeadsTest do
 
     test "list_contact_submissions/0 returns all submissions ordered by submitted_at" do
       {:ok, _} = Leads.create_contact_submission(@valid_attrs)
-      {:ok, _} = Leads.create_contact_submission(%{@valid_attrs | email: "other@test.com", name: "Other"})
+
+      {:ok, _} =
+        Leads.create_contact_submission(%{@valid_attrs | email: "other@test.com", name: "Other"})
+
       assert length(Leads.list_contact_submissions()) == 2
     end
   end

@@ -14,7 +14,7 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
      |> allow_upload(:featured_image,
        accept: ~w(.jpg .jpeg .png .gif .webp),
        max_entries: 1,
-       max_file_size: 5_000_000
+       max_file_size: 10_000_000
      )
      |> allow_upload(:inline_image,
        accept: ~w(.jpg .jpeg .png .gif .webp),
@@ -263,7 +263,7 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
                   </label>
                   or drag and drop
                 </p>
-                <p class="text-xs text-gray-500 mt-1">JPG, PNG, GIF, WebP up to 5MB</p>
+                <p class="text-xs text-gray-500 mt-1">JPG, PNG, GIF, WebP up to 10MB</p>
                 <.live_file_input upload={@uploads.featured_image} class="sr-only" />
               </div>
             </div>
@@ -412,7 +412,7 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
     end)
   end
 
-  defp upload_error_to_string(:too_large), do: "File is too large (max 5MB)"
+  defp upload_error_to_string(:too_large), do: "File is too large (max 10MB)"
   defp upload_error_to_string(:too_many_files), do: "Too many files"
   defp upload_error_to_string(:not_accepted), do: "Unsupported file type"
   defp upload_error_to_string(err), do: "Upload error: #{inspect(err)}"

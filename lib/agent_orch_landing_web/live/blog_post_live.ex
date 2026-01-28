@@ -35,14 +35,12 @@ defmodule AgentOrchLandingWeb.BlogPostLive do
         <%!-- Hero featured image --%>
         <div
           :if={@post.featured_image}
-          class="relative h-[60vh] min-h-96 w-full overflow-hidden"
+          class="relative h-[60vh] min-h-96 w-full overflow-hidden bg-gray-950 bg-cover bg-center"
+          style={"background-image: url('#{@post.featured_image}')"}
+          role="img"
+          aria-label={@post.title}
           data-animate="fade-in"
         >
-          <img
-            src={@post.featured_image}
-            alt={@post.title}
-            class="absolute inset-0 h-full w-full object-cover"
-          />
           <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-gray-950/40 to-gray-950/10">
           </div>
           <div class="absolute inset-x-0 bottom-0 px-6 pb-12 lg:px-8">

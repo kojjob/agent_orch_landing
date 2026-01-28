@@ -95,7 +95,10 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
   def handle_event("save_inline_image", _params, socket) do
     url = Upload.save_upload(socket, :inline_image)
 
-    {:noreply, assign(socket, :inline_image_url, url)}
+    {:noreply,
+     socket
+     |> assign(:inline_image_url, url)
+     |> push_event("insert_inline_image", %{url: url})}
   end
 
   @impl true
@@ -172,6 +175,7 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
           id="post-form"
           phx-change="validate"
           phx-submit="save"
+          phx-hook="InsertInlineImage"
           class="space-y-6 bg-white p-6 rounded-lg shadow"
         >
           <div>
@@ -181,7 +185,7 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
               name="post[title]"
               id="post_title"
               value={@form[:title].value}
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              class="py-2 px-3 mt-1 block w-full rounded border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
             <.field_errors field={@form[:title]} />
           </div>
@@ -195,7 +199,7 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
               name="post[slug]"
               id="post_slug"
               value={@form[:slug].value}
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              class="py-2 px-3 mt-1 block w-full rounded border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
           </div>
 
@@ -206,7 +210,7 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
               name="post[excerpt]"
               id="post_excerpt"
               value={@form[:excerpt].value}
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              class="py-2 px-3 mt-1 block w-full rounded border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
           </div>
 
@@ -217,7 +221,7 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
               name="post[author]"
               id="post_author"
               value={@form[:author].value}
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              class="py-2 px-3 mt-1 block w-full rounded border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
             <.field_errors field={@form[:author]} />
           </div>
@@ -295,12 +299,12 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminFormLive do
                 name="post[body]"
                 id="post_body"
                 rows="16"
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm font-mono"
+                class="py-2 px-3 mt-1 block w-full rounded border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm font-mono"
               ><%= @form[:body].value %></textarea>
               <.field_errors field={@form[:body]} />
 
               <%!-- Inline Image Upload --%>
-              <div class="mt-4 p-4 border rounded-md bg-gray-50">
+              <div class="mt-4 p-4 border rounded bg-gray-50">
                 <label class="block text-sm font-medium text-gray-700 mb-2">
                   Upload Inline Image
                 </label>

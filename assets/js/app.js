@@ -80,6 +80,23 @@ Hooks.ThemeToggle = {
   },
 }
 
+Hooks.InsertInlineImage = {
+  mounted() {
+    this.handleEvent("insert_inline_image", ({ url }) => {
+      const textarea = document.getElementById("post_body")
+      if (!textarea) return
+      const markdown = `\n![image](${url})\n`
+      const start = textarea.selectionStart
+      const before = textarea.value.substring(0, start)
+      const after = textarea.value.substring(textarea.selectionEnd)
+      textarea.value = before + markdown + after
+      textarea.selectionStart = textarea.selectionEnd = start + markdown.length
+      textarea.focus()
+      textarea.dispatchEvent(new Event("input", { bubbles: true }))
+    })
+  },
+}
+
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,

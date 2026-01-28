@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
 
-    <meta name="description" content="AgentOrch — the orchestration platform for AI agent teams. Monitor, coordinate, and scale your AI agents from prototype to production." />
-    <meta property="og:title" content="AgentOrch — AI Agent Orchestration Platform" />
-    <meta property="og:description" content="Stop flying blind with your AI agents. Full visibility, coordination, and cost control for production agent fleets." />
+    <meta name="description" content={assigns[:page_description] || "AgentOrch — the orchestration platform for AI agent teams. Monitor, coordinate, and scale your AI agents from prototype to production."} />
+    <meta property="og:title" content={assigns[:og_title] || assigns[:page_title] || "AgentOrch — AI Agent Orchestration Platform"} />
+    <meta property="og:description" content={assigns[:og_description] || assigns[:page_description] || "Stop flying blind with your AI agents. Full visibility, coordination, and cost control for production agent fleets."} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://agentorch.dev" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="AgentOrch — AI Agent Orchestration Platform" />
-    <meta name="twitter:description" content="Stop flying blind with your AI agents. Full visibility, coordination, and cost control." />
+    <meta name="twitter:title" content={assigns[:og_title] || assigns[:page_title] || "AgentOrch — AI Agent Orchestration Platform"} />
+    <meta name="twitter:description" content={assigns[:og_description] || assigns[:page_description] || "Stop flying blind with your AI agents. Full visibility, coordination, and cost control."} />
 
     <.live_title default="AgentOrch — AI Agent Orchestration Platform">
       {assigns[:page_title]}

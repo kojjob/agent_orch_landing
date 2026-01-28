@@ -11,7 +11,9 @@ defmodule AgentOrchLandingWeb.AboutLive do
      socket
      |> assign(:mobile_menu_open, false)
      |> assign(:theme, "dark")
-     |> assign(:page_title, "About — AgentOrch")}
+     |> assign(:page_title, "About — AgentOrch")
+     |> assign(:page_description, "Learn about the team and mission behind AgentOrch, the AI agent orchestration platform.")
+     |> assign(:og_title, "About — AgentOrch")}
   end
 
   @impl true

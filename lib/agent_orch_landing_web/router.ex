@@ -21,6 +21,8 @@ defmodule AgentOrchLandingWeb.Router do
     live "/", LandingLive, :index
     live "/about", AboutLive, :index
     live "/contact", ContactLive, :index
+    live "/blog", BlogLive, :index
+    live "/blog/:slug", BlogPostLive, :show
   end
 
   if Application.compile_env(:agent_orch_landing, :dev_routes) do

@@ -30,10 +30,10 @@ defmodule AgentOrchLandingWeb.ContactLive do
       <.navbar mobile_menu_open={@mobile_menu_open} theme={@theme} />
       <div class="pt-16" id="scroll-reveal" phx-hook="ScrollReveal">
         <%!-- Hero --%>
-        <section class="relative overflow-hidden px-6 py-24 sm:py-32 lg:px-8">
+        <section class="relative overflow-hidden px-6 py-32 sm:py-40 lg:px-8">
           <div class="absolute inset-0 bg-gradient-to-br from-purple-100 via-white to-indigo-100 dark:from-purple-950 dark:via-gray-950 dark:to-indigo-950"></div>
           <div class="relative mx-auto max-w-3xl text-center" data-animate="hero" data-delay="100">
-            <h1 class="text-4xl font-bold tracking-tight sm:text-5xl bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 dark:from-purple-400 dark:via-indigo-400 dark:to-pink-400 bg-clip-text text-transparent">
+            <h1 class="font-[Space_Grotesk] text-4xl font-bold tracking-tight sm:text-5xl bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 dark:from-purple-400 dark:via-indigo-400 dark:to-pink-400 bg-clip-text text-transparent">
               Get in touch
             </h1>
             <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -43,13 +43,13 @@ defmodule AgentOrchLandingWeb.ContactLive do
         </section>
 
         <%!-- Contact Grid --%>
-        <section class="px-6 py-20 lg:px-8">
+        <section class="px-6 py-24 lg:py-32 lg:px-8">
           <div class="mx-auto max-w-6xl">
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
               <%!-- Contact Info --%>
               <div class="lg:col-span-2 space-y-8" data-animate="slide-left">
                 <div>
-                  <h2 class="text-2xl font-bold tracking-tight">Let's talk</h2>
+                  <h2 class="font-[Space_Grotesk] text-2xl font-bold tracking-tight">Let's talk</h2>
                   <p class="mt-3 text-gray-600 dark:text-gray-400 leading-7">
                     Whether you're exploring AgentOrch for your team or just curious about AI agent orchestration, we're here to help.
                   </p>
@@ -198,13 +198,14 @@ defmodule AgentOrchLandingWeb.ContactLive do
         </section>
 
         <%!-- FAQ --%>
-        <section class="px-6 py-20 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+        <section class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
           <div class="mx-auto max-w-3xl">
             <div class="text-center" data-animate="fade-up">
-              <span class="inline-flex items-center rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-600 dark:text-indigo-400 ring-1 ring-indigo-500/20">
+              <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span>
                 FAQ
               </span>
-              <h2 class="mt-4 text-3xl font-bold tracking-tight">Frequently asked questions</h2>
+              <h2 class="mt-4 font-[Space_Grotesk] text-3xl font-bold tracking-tight">Frequently asked questions</h2>
             </div>
             <div class="mt-12 space-y-4">
               <.faq_item

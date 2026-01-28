@@ -21,10 +21,10 @@ defmodule AgentOrchLandingWeb.AboutLive do
       <.navbar mobile_menu_open={@mobile_menu_open} theme={@theme} />
       <div class="pt-16" id="scroll-reveal" phx-hook="ScrollReveal">
         <%!-- Hero --%>
-        <section class="relative overflow-hidden px-6 py-24 sm:py-32 lg:px-8">
+        <section class="relative overflow-hidden px-6 py-32 sm:py-40 lg:px-8">
           <div class="absolute inset-0 bg-gradient-to-br from-indigo-100 via-white to-purple-100 dark:from-indigo-950 dark:via-gray-950 dark:to-purple-950"></div>
           <div class="relative mx-auto max-w-3xl text-center" data-animate="hero" data-delay="100">
-            <h1 class="text-4xl font-bold tracking-tight sm:text-5xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+            <h1 class="font-[Space_Grotesk] text-4xl font-bold tracking-tight sm:text-5xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
               Building the future of AI agent orchestration
             </h1>
             <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -34,14 +34,15 @@ defmodule AgentOrchLandingWeb.AboutLive do
         </section>
 
         <%!-- Mission --%>
-        <section class="px-6 py-20 lg:px-8">
+        <section class="px-6 py-24 lg:py-32 lg:px-8">
           <div class="mx-auto max-w-5xl">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div data-animate="slide-left">
-                <span class="inline-flex items-center rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-600 dark:text-indigo-400 ring-1 ring-indigo-500/20">
+                <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span>
                   Our Mission
                 </span>
-                <h2 class="mt-4 text-3xl font-bold tracking-tight">
+                <h2 class="mt-4 font-[Space_Grotesk] text-3xl font-bold tracking-tight">
                   From agent chaos to agent clarity
                 </h2>
                 <p class="mt-4 text-gray-600 dark:text-gray-400 leading-7">
@@ -74,13 +75,14 @@ defmodule AgentOrchLandingWeb.AboutLive do
         </section>
 
         <%!-- Values --%>
-        <section class="px-6 py-20 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+        <section class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
           <div class="mx-auto max-w-5xl">
             <div class="text-center" data-animate="fade-up">
-              <span class="inline-flex items-center rounded-full bg-purple-500/10 px-3 py-1 text-xs font-medium text-purple-600 dark:text-purple-400 ring-1 ring-purple-500/20">
+              <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span>
                 Our Values
               </span>
-              <h2 class="mt-4 text-3xl font-bold tracking-tight">What drives us</h2>
+              <h2 class="mt-4 font-[Space_Grotesk] text-3xl font-bold tracking-tight">What drives us</h2>
             </div>
             <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               <div class="rounded-2xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="100">
@@ -160,13 +162,14 @@ defmodule AgentOrchLandingWeb.AboutLive do
         </section>
 
         <%!-- Team --%>
-        <section class="px-6 py-20 lg:px-8">
+        <section class="px-6 py-24 lg:py-32 lg:px-8">
           <div class="mx-auto max-w-5xl">
             <div class="text-center" data-animate="fade-up">
-              <span class="inline-flex items-center rounded-full bg-pink-500/10 px-3 py-1 text-xs font-medium text-pink-600 dark:text-pink-400 ring-1 ring-pink-500/20">
+              <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span>
                 Our Team
               </span>
-              <h2 class="mt-4 text-3xl font-bold tracking-tight">Meet the people behind AgentOrch</h2>
+              <h2 class="mt-4 font-[Space_Grotesk] text-3xl font-bold tracking-tight">Meet the people behind AgentOrch</h2>
               <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                 A team of engineers, researchers, and operators who've built and scaled AI systems at companies like Google, OpenAI, and Stripe.
               </p>
@@ -213,12 +216,12 @@ defmodule AgentOrchLandingWeb.AboutLive do
         </section>
 
         <%!-- CTA --%>
-        <section class="px-6 py-20 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+        <section class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
           <div class="mx-auto max-w-2xl text-center" data-animate="fade-up">
-            <h2 class="text-3xl font-bold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+            <h2 class="font-[Space_Grotesk] text-3xl font-bold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
               Want to join us?
             </h2>
-            <p class="mt-4 text-gray-600 dark:text-gray-400">
+            <p class="mt-6 text-gray-600 dark:text-gray-400">
               We're hiring across engineering, product, and design. Come build the orchestration layer for AI.
             </p>
             <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
@@ -226,7 +229,7 @@ defmodule AgentOrchLandingWeb.AboutLive do
                 Join the Waitlist →
               </a>
               <a href="/contact" class="rounded-full px-7 py-3 text-sm font-semibold text-gray-900 dark:text-white ring-1 ring-gray-300 dark:ring-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
-                Get in Touch
+                Get in Touch →
               </a>
             </div>
           </div>

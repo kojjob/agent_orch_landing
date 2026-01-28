@@ -3,9 +3,15 @@ defmodule AgentOrchLandingWeb.Landing.SolutionSection do
 
   def solution_section(assigns) do
     ~H"""
-    <section id="solution" class="px-6 py-20 lg:px-8">
+    <section id="solution" class="px-6 py-24 lg:py-32 lg:px-8">
       <div class="mx-auto max-w-5xl">
-        <h2 class="text-center text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 dark:text-white" data-animate="fade-up">
+        <div class="text-center" data-animate="fade-up">
+          <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span>
+            The Solution
+          </span>
+        </div>
+        <h2 class="mt-4 text-center font-[Space_Grotesk] text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 dark:text-white" data-animate="fade-up">
           Three pillars. Total control.
         </h2>
 

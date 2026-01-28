@@ -12,12 +12,12 @@ defmodule AgentOrchLandingWeb.Landing.CtaSection do
 
   def cta_section(assigns) do
     ~H"""
-    <section class="px-6 py-24 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent" data-animate="fade-up">
+    <section class="px-6 py-24 lg:py-32 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="font-[Space_Grotesk] text-3xl font-bold tracking-tight sm:text-4xl bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent" data-animate="fade-up">
           Ready to take control of your agents?
         </h2>
-        <p class="mt-4 text-lg text-gray-500 dark:text-gray-400" data-animate="fade-up" data-delay="100">
+        <p class="mt-6 text-lg text-gray-500 dark:text-gray-400" data-animate="fade-up" data-delay="100">
           Join the waitlist for early access. Or become a design partner and shape the product.
         </p>
 
@@ -47,7 +47,7 @@ defmodule AgentOrchLandingWeb.Landing.CtaSection do
             phx-click="open_partner_modal"
             class="text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 underline underline-offset-4 transition-colors"
           >
-            Become a Design Partner →
+            Become a Design Partner  →
           </button>
         </div>
       </div>

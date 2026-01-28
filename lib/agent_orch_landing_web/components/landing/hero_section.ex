@@ -8,13 +8,13 @@ defmodule AgentOrchLandingWeb.Landing.HeroSection do
 
   def hero_section(assigns) do
     ~H"""
-    <section id="hero" class="relative overflow-hidden px-6 py-24 sm:py-32 lg:px-8">
+    <section id="hero" class="relative overflow-hidden px-6 py-32 sm:py-40 lg:px-8">
       <div class="absolute inset-0 bg-gradient-to-br from-indigo-100 via-white to-purple-100 dark:from-indigo-950 dark:via-gray-950 dark:to-purple-950"></div>
       <div class="relative mx-auto max-w-3xl text-center" data-animate="hero" data-delay="100">
-        <h1 class="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+        <h1 class="font-[Space_Grotesk] text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
           {@headline}
         </h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300" data-animate="fade-up" data-delay="300">
+        <p class="mt-8 text-lg leading-8 text-gray-600 dark:text-gray-300" data-animate="fade-up" data-delay="300">
           The orchestration platform that gives you full visibility and control over your AI agent fleet.
           Monitor, coordinate, and scale — from prototype to production.
         </p>

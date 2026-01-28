@@ -3,12 +3,18 @@ defmodule AgentOrchLandingWeb.Landing.ProblemSection do
 
   def problem_section(assigns) do
     ~H"""
-    <section class="px-6 py-20 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+    <section class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
       <div class="mx-auto max-w-5xl">
-        <h2 class="text-center text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 dark:text-white" data-animate="fade-up">
+        <div class="text-center" data-animate="fade-up">
+          <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span>
+            The Problem
+          </span>
+        </div>
+        <h2 class="mt-4 text-center font-[Space_Grotesk] text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 dark:text-white" data-animate="fade-up">
           Running AI agents in production is painful
         </h2>
-        <p class="mt-4 text-center text-gray-500 dark:text-gray-400 text-lg" data-animate="fade-up" data-delay="100">
+        <p class="mt-6 text-center text-gray-500 dark:text-gray-400 text-lg" data-animate="fade-up" data-delay="100">
           Sound familiar?
         </p>
 

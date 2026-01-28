@@ -37,5 +37,7 @@ config :phoenix_live_view,
   enable_expensive_runtime_checks: true
 
 # Sort query params output of verified routes for robust url comparisons
+config :agent_orch_landing, :admin_auth, username: "admin", password: "admin"
+
 config :phoenix,
   sort_verified_routes_query_params: true

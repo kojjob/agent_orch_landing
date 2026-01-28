@@ -27,6 +27,10 @@ config :agent_orch_landing, AgentOrchLandingWeb.Endpoint,
   ]
 
 if config_env() == :prod do
+  config :agent_orch_landing, :admin_auth,
+    username: System.get_env("ADMIN_USER") || "admin",
+    password: System.get_env("ADMIN_PASSWORD") || raise("ADMIN_PASSWORD env var is required")
+
   database_url =
     System.get_env("DATABASE_URL") ||
       raise """

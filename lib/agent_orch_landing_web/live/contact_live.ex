@@ -16,11 +16,19 @@ defmodule AgentOrchLandingWeb.ContactLive do
      |> assign(:contact_submitted, false)}
   end
 
-  def handle_event("submit_contact", %{"contact" => _params}, socket) do
-    {:noreply,
-     socket
-     |> assign(:contact_submitted, true)
-     |> put_flash(:info, "Message sent! We'll get back to you soon.")}
+  def handle_event("submit_contact", %{"contact" => params}, socket) do
+    case AgentOrchLanding.Leads.create_contact_submission(params) do
+      {:ok, _submission} ->
+        {:noreply,
+         socket
+         |> assign(:contact_submitted, true)
+         |> put_flash(:info, "Message sent! We'll get back to you soon.")}
+
+      {:error, _changeset} ->
+        {:noreply,
+         socket
+         |> put_flash(:error, "Something went wrong. Please try again.")}
+    end
   end
 
   @impl true

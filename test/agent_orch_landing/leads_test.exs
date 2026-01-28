@@ -47,6 +47,49 @@ defmodule AgentOrchLanding.LeadsTest do
     end
   end
 
+  describe "contact_submissions" do
+    @valid_attrs %{
+      name: "Jane Doe",
+      email: "jane@example.com",
+      subject: "general",
+      message: "I'd like to learn more about AgentOrch."
+    }
+
+    test "create_contact_submission/1 with valid data creates a submission" do
+      assert {:ok, %Leads.ContactSubmission{} = sub} = Leads.create_contact_submission(@valid_attrs)
+      assert sub.name == "Jane Doe"
+      assert sub.email == "jane@example.com"
+      assert sub.subject == "general"
+      assert sub.message == "I'd like to learn more about AgentOrch."
+      assert sub.submitted_at != nil
+    end
+
+    test "create_contact_submission/1 downcases and trims email" do
+      assert {:ok, sub} = Leads.create_contact_submission(%{@valid_attrs | email: "  JANE@Example.COM  "})
+      assert sub.email == "jane@example.com"
+    end
+
+    test "create_contact_submission/1 requires name, email, subject, message" do
+      assert {:error, changeset} = Leads.create_contact_submission(%{})
+      errors = errors_on(changeset)
+      assert errors[:name]
+      assert errors[:email]
+      assert errors[:subject]
+      assert errors[:message]
+    end
+
+    test "create_contact_submission/1 with invalid email returns error" do
+      assert {:error, changeset} = Leads.create_contact_submission(%{@valid_attrs | email: "bad"})
+      assert %{email: ["must be a valid email"]} = errors_on(changeset)
+    end
+
+    test "list_contact_submissions/0 returns all submissions ordered by submitted_at" do
+      {:ok, _} = Leads.create_contact_submission(@valid_attrs)
+      {:ok, _} = Leads.create_contact_submission(%{@valid_attrs | email: "other@test.com", name: "Other"})
+      assert length(Leads.list_contact_submissions()) == 2
+    end
+  end
+
   describe "design_partners" do
     @valid_attrs %{
       email: "partner@company.com",

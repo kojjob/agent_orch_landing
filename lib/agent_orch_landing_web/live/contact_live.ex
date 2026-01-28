@@ -26,12 +26,12 @@ defmodule AgentOrchLandingWeb.ContactLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div id="theme-root" phx-hook="ThemeToggle" class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white" data-theme-value={@theme}>
+    <div id="theme-root" phx-hook="ThemeToggle" class="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white" data-theme-value={@theme}>
       <.navbar mobile_menu_open={@mobile_menu_open} theme={@theme} />
       <div class="pt-16" id="scroll-reveal" phx-hook="ScrollReveal">
         <%!-- Hero --%>
         <section class="relative overflow-hidden px-6 py-32 sm:py-40 lg:px-8">
-          <div class="absolute inset-0 bg-gradient-to-br from-purple-100 via-white to-indigo-100 dark:from-purple-950 dark:via-gray-950 dark:to-indigo-950"></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-50 via-gray-50 to-indigo-50 dark:from-purple-950 dark:via-gray-950 dark:to-indigo-950"></div>
           <div class="relative mx-auto max-w-3xl text-center" data-animate="hero" data-delay="100">
             <h1 class="font-[Space_Grotesk] text-4xl font-bold tracking-tight sm:text-5xl bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 dark:from-purple-400 dark:via-indigo-400 dark:to-pink-400 bg-clip-text text-transparent">
               Get in touch
@@ -124,7 +124,7 @@ defmodule AgentOrchLandingWeb.ContactLive do
 
               <%!-- Contact Form --%>
               <div class="lg:col-span-3" data-animate="slide-right">
-                <div class="rounded-2xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm">
+                <div class="rounded-2xl bg-white/80 dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm">
                   <%= if @contact_submitted do %>
                     <div class="text-center py-12">
                       <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
@@ -146,7 +146,7 @@ defmodule AgentOrchLandingWeb.ContactLive do
                             name="contact[name]"
                             required
                             placeholder="Your name"
-                            class="w-full rounded-lg px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
+                            class="w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
                           />
                         </div>
                         <div>
@@ -156,7 +156,7 @@ defmodule AgentOrchLandingWeb.ContactLive do
                             name="contact[email]"
                             required
                             placeholder="you@company.com"
-                            class="w-full rounded-lg px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
+                            class="w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
                           />
                         </div>
                       </div>
@@ -165,7 +165,7 @@ defmodule AgentOrchLandingWeb.ContactLive do
                         <select
                           name="contact[subject]"
                           required
-                          class="w-full rounded-lg px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
+                          class="w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
                         >
                           <option value="">Select a topic...</option>
                           <option value="general">General Inquiry</option>
@@ -183,7 +183,7 @@ defmodule AgentOrchLandingWeb.ContactLive do
                           rows="5"
                           required
                           placeholder="Tell us how we can help..."
-                          class="w-full rounded-lg px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm resize-none"
+                          class="w-full rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm resize-none"
                         ></textarea>
                       </div>
                       <button type="submit" class="w-full rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:brightness-110 active:scale-[0.97] transition-all">
@@ -198,7 +198,7 @@ defmodule AgentOrchLandingWeb.ContactLive do
         </section>
 
         <%!-- FAQ --%>
-        <section class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+        <section class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-100/60 dark:bg-gray-900/50">
           <div class="mx-auto max-w-3xl">
             <div class="text-center" data-animate="fade-up">
               <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20">
@@ -244,7 +244,7 @@ defmodule AgentOrchLandingWeb.ContactLive do
 
   defp faq_item(assigns) do
     ~H"""
-    <div class="rounded-2xl bg-white dark:bg-gray-800/50 p-6 ring-1 ring-gray-200 dark:ring-gray-700/50" data-animate="fade-up" data-delay={@delay}>
+    <div class="rounded-2xl bg-white/80 dark:bg-gray-800/50 p-6 ring-1 ring-gray-200 dark:ring-gray-700/50" data-animate="fade-up" data-delay={@delay}>
       <h3 class="text-base font-semibold">{@question}</h3>
       <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-6">{@answer}</p>
     </div>

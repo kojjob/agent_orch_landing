@@ -126,7 +126,7 @@ defmodule AgentOrchLandingWeb.LandingLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div id="theme-root" phx-hook="ThemeToggle" class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white" data-theme-value={@theme}>
+    <div id="theme-root" phx-hook="ThemeToggle" class="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white" data-theme-value={@theme}>
       <.navbar mobile_menu_open={@mobile_menu_open} theme={@theme} />
       <div class="pt-16" id="scroll-reveal" phx-hook="ScrollReveal">
         <.hero_section headline={@headline} form={@email_form} submitted={@email_submitted} />

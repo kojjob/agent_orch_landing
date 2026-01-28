@@ -239,7 +239,7 @@ defmodule AgentOrchLandingWeb.CoreComponents do
         <select
           id={@id}
           name={@name}
-          class={[@class || "w-full select rounded-lg px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm", @errors != [] && (@error_class || "select-error border-red-500")]}
+          class={[@class || "w-full select rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm", @errors != [] && (@error_class || "select-error border-red-500")]}
           multiple={@multiple}
           {@rest}
         >
@@ -261,7 +261,7 @@ defmodule AgentOrchLandingWeb.CoreComponents do
           id={@id}
           name={@name}
           class={[
-            @class || "w-full textarea rounded-lg px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm",
+            @class || "w-full textarea rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm",
             @errors != [] && (@error_class || "textarea-error border-red-500")
           ]}
           {@rest}
@@ -284,7 +284,7 @@ defmodule AgentOrchLandingWeb.CoreComponents do
           id={@id}
           value={Phoenix.HTML.Form.normalize_value(@type, @value)}
           class={[
-            @class || "w-full input rounded-lg px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm",
+            @class || "w-full input rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm",
             @errors != [] && (@error_class || "input-error border-red-500")
           ]}
           {@rest}

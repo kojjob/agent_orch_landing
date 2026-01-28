@@ -24,7 +24,7 @@ defmodule AgentOrchLandingWeb.Landing.HowItWorksSection do
     assigns = assign(assigns, :code_snippet, @code_snippet)
 
     ~H"""
-    <section id="how-it-works" class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+    <section id="how-it-works" class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-100/60 dark:bg-gray-900/50">
       <div class="mx-auto max-w-5xl">
         <div class="text-center" data-animate="fade-up">
           <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20">

@@ -32,7 +32,7 @@ defmodule AgentOrchLandingWeb.Landing.CtaSection do
                   type="email"
                   placeholder="you@company.com"
                   required
-                  class="w-full rounded-full px-5 py-3 bg-white dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
+                  class="w-full rounded-full px-5 py-3 bg-gray-50 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
                 />
               </div>
               <button type="submit" class="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:brightness-110 active:scale-[0.97] transition-all whitespace-nowrap">
@@ -54,7 +54,7 @@ defmodule AgentOrchLandingWeb.Landing.CtaSection do
 
       <%= if @show_partner_modal do %>
         <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" phx-click="close_partner_modal">
-          <div class="w-full max-w-lg mx-4 rounded-2xl bg-white dark:bg-gray-900 p-8 ring-1 ring-gray-200 dark:ring-gray-700 shadow-2xl" phx-click={%JS{}}>
+          <div class="w-full max-w-lg mx-4 rounded-2xl bg-white/80 dark:bg-gray-900 p-8 ring-1 ring-gray-200 dark:ring-gray-700 shadow-2xl" phx-click={%JS{}}>
             <div class="flex items-center justify-between mb-6">
               <h3 class="text-xl font-bold text-gray-900 dark:text-white">Become a Design Partner</h3>
               <button phx-click="close_partner_modal" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">

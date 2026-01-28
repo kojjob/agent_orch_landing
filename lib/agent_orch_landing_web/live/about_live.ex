@@ -17,12 +17,12 @@ defmodule AgentOrchLandingWeb.AboutLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div id="theme-root" phx-hook="ThemeToggle" class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white" data-theme-value={@theme}>
+    <div id="theme-root" phx-hook="ThemeToggle" class="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white" data-theme-value={@theme}>
       <.navbar mobile_menu_open={@mobile_menu_open} theme={@theme} />
       <div class="pt-16" id="scroll-reveal" phx-hook="ScrollReveal">
         <%!-- Hero --%>
         <section class="relative overflow-hidden px-6 py-32 sm:py-40 lg:px-8">
-          <div class="absolute inset-0 bg-gradient-to-br from-indigo-100 via-white to-purple-100 dark:from-indigo-950 dark:via-gray-950 dark:to-purple-950"></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-gray-50 to-purple-50 dark:from-indigo-950 dark:via-gray-950 dark:to-purple-950"></div>
           <div class="relative mx-auto max-w-3xl text-center" data-animate="hero" data-delay="100">
             <h1 class="font-[Space_Grotesk] text-4xl font-bold tracking-tight sm:text-5xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
               Building the future of AI agent orchestration
@@ -75,7 +75,7 @@ defmodule AgentOrchLandingWeb.AboutLive do
         </section>
 
         <%!-- Values --%>
-        <section class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+        <section class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-100/60 dark:bg-gray-900/50">
           <div class="mx-auto max-w-5xl">
             <div class="text-center" data-animate="fade-up">
               <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20">
@@ -85,7 +85,7 @@ defmodule AgentOrchLandingWeb.AboutLive do
               <h2 class="mt-4 font-[Space_Grotesk] text-3xl font-bold tracking-tight">What drives us</h2>
             </div>
             <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div class="rounded-2xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="100">
+              <div class="rounded-2xl bg-white/80 dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="100">
                 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20">
                   <svg class="h-6 w-6 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
@@ -98,7 +98,7 @@ defmodule AgentOrchLandingWeb.AboutLive do
                 </p>
               </div>
 
-              <div class="rounded-2xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="200">
+              <div class="rounded-2xl bg-white/80 dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="200">
                 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/10 dark:bg-purple-500/20">
                   <svg class="h-6 w-6 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
@@ -110,7 +110,7 @@ defmodule AgentOrchLandingWeb.AboutLive do
                 </p>
               </div>
 
-              <div class="rounded-2xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="300">
+              <div class="rounded-2xl bg-white/80 dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="300">
                 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-pink-500/10 dark:bg-pink-500/20">
                   <svg class="h-6 w-6 text-pink-600 dark:text-pink-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
@@ -122,7 +122,7 @@ defmodule AgentOrchLandingWeb.AboutLive do
                 </p>
               </div>
 
-              <div class="rounded-2xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="400">
+              <div class="rounded-2xl bg-white/80 dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="400">
                 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20">
                   <svg class="h-6 w-6 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -134,7 +134,7 @@ defmodule AgentOrchLandingWeb.AboutLive do
                 </p>
               </div>
 
-              <div class="rounded-2xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="500">
+              <div class="rounded-2xl bg-white/80 dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="500">
                 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/10 dark:bg-amber-500/20">
                   <svg class="h-6 w-6 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
@@ -146,7 +146,7 @@ defmodule AgentOrchLandingWeb.AboutLive do
                 </p>
               </div>
 
-              <div class="rounded-2xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="600">
+              <div class="rounded-2xl bg-white/80 dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm" data-animate="fade-up" data-delay="600">
                 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 dark:bg-cyan-500/20">
                   <svg class="h-6 w-6 text-cyan-600 dark:text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
@@ -216,7 +216,7 @@ defmodule AgentOrchLandingWeb.AboutLive do
         </section>
 
         <%!-- CTA --%>
-        <section class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+        <section class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-100/60 dark:bg-gray-900/50">
           <div class="mx-auto max-w-2xl text-center" data-animate="fade-up">
             <h2 class="font-[Space_Grotesk] text-3xl font-bold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
               Want to join us?
@@ -253,7 +253,7 @@ defmodule AgentOrchLandingWeb.AboutLive do
     assigns = assign(assigns, :gradient, Map.get(colors, assigns.color, "from-indigo-500 to-indigo-600"))
 
     ~H"""
-    <div class="rounded-2xl bg-white dark:bg-gray-800/50 p-6 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm hover:shadow-md transition-shadow" data-animate="fade-up">
+    <div class="rounded-2xl bg-white/80 dark:bg-gray-800/50 p-6 ring-1 ring-gray-200 dark:ring-gray-700/50 shadow-sm hover:shadow-md transition-shadow" data-animate="fade-up">
       <div class={"flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br #{@gradient} text-white text-lg font-bold shadow-lg"}>
         {String.first(@name)}
       </div>

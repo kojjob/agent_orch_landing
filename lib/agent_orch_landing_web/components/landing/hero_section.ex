@@ -9,7 +9,7 @@ defmodule AgentOrchLandingWeb.Landing.HeroSection do
   def hero_section(assigns) do
     ~H"""
     <section id="hero" class="relative overflow-hidden px-6 py-32 sm:py-40 lg:px-8">
-      <div class="absolute inset-0 bg-gradient-to-br from-indigo-100 via-white to-purple-100 dark:from-indigo-950 dark:via-gray-950 dark:to-purple-950"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-gray-50 to-purple-50 dark:from-indigo-950 dark:via-gray-950 dark:to-purple-950"></div>
       <div class="relative mx-auto max-w-3xl text-center" data-animate="hero" data-delay="100">
         <h1 class="font-[Space_Grotesk] text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
           {@headline}
@@ -35,7 +35,7 @@ defmodule AgentOrchLandingWeb.Landing.HeroSection do
                   type="email"
                   placeholder="you@company.com"
                   required
-                  class="w-full rounded-full px-5 py-3 bg-white dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
+                  class="w-full rounded-full px-5 py-3 bg-gray-50 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500/20 focus:ring-2 focus:outline-none transition-all text-sm"
                 />
               </div>
               <button type="submit" class="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:brightness-110 active:scale-[0.97] transition-all whitespace-nowrap">

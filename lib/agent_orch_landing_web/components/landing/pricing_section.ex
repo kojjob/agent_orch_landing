@@ -3,7 +3,7 @@ defmodule AgentOrchLandingWeb.Landing.PricingSection do
 
   def pricing_section(assigns) do
     ~H"""
-    <section id="pricing" class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+    <section id="pricing" class="px-6 py-24 lg:py-32 lg:px-8 bg-gray-100/60 dark:bg-gray-900/50">
       <div class="mx-auto max-w-5xl">
         <div class="text-center" data-animate="fade-up">
           <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20">
@@ -19,7 +19,7 @@ defmodule AgentOrchLandingWeb.Landing.PricingSection do
         </p>
 
         <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
-          <div class="rounded-xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 hover-lift" data-animate="fade-up" data-delay="150">
+          <div class="rounded-xl bg-white/80 dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 hover-lift" data-animate="fade-up" data-delay="150">
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Free</h3>
             <p class="mt-2 text-4xl font-bold text-gray-900 dark:text-white">$0</p>
             <p class="text-sm text-gray-500">forever</p>
@@ -31,7 +31,7 @@ defmodule AgentOrchLandingWeb.Landing.PricingSection do
             </ul>
           </div>
 
-          <div class="rounded-xl bg-white dark:bg-gray-800/50 p-8 ring-2 ring-indigo-500 hover-lift" data-animate="scale-in" data-delay="300">
+          <div class="rounded-xl bg-white/80 dark:bg-gray-800/50 p-8 ring-2 ring-indigo-500 hover-lift" data-animate="scale-in" data-delay="300">
             <div class="flex items-center justify-between">
               <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Pro</h3>
               <span class="rounded-full bg-indigo-600 px-3 py-1 text-xs font-semibold text-white">Popular</span>
@@ -47,7 +47,7 @@ defmodule AgentOrchLandingWeb.Landing.PricingSection do
             </ul>
           </div>
 
-          <div class="rounded-xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 hover-lift" data-animate="fade-up" data-delay="450">
+          <div class="rounded-xl bg-white/80 dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 hover-lift" data-animate="fade-up" data-delay="450">
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Enterprise</h3>
             <p class="mt-2 text-4xl font-bold text-gray-900 dark:text-white">Custom</p>
             <p class="text-sm text-gray-500">talk to us</p>

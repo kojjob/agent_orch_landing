@@ -16,7 +16,7 @@ defmodule AgentOrchLandingWeb.Landing.SocialProofSection do
         </h2>
 
         <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
-          <div class="rounded-xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 hover-lift" data-animate="fade-up" data-delay="150">
+          <div class="rounded-xl bg-white/80 dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 hover-lift" data-animate="fade-up" data-delay="150">
             <p class="text-gray-600 dark:text-gray-300 italic">
               "We were spending 40% of engineering time debugging agent failures.
               We need something purpose-built for agent orchestration."
@@ -30,7 +30,7 @@ defmodule AgentOrchLandingWeb.Landing.SocialProofSection do
             </div>
           </div>
 
-          <div class="rounded-xl bg-white dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 hover-lift" data-animate="fade-up" data-delay="300">
+          <div class="rounded-xl bg-white/80 dark:bg-gray-800/50 p-8 ring-1 ring-gray-200 dark:ring-gray-700/50 hover-lift" data-animate="fade-up" data-delay="300">
             <p class="text-gray-600 dark:text-gray-300 italic">
               "Our multi-agent system processes 10K tasks/day. Without proper
               orchestration tooling, we'd be flying blind."

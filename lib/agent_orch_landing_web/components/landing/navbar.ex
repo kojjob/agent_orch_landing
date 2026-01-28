@@ -6,7 +6,7 @@ defmodule AgentOrchLandingWeb.Landing.Navbar do
 
   def navbar(assigns) do
     ~H"""
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800/50">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-gray-50/80 dark:bg-gray-950/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800/50">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <%!-- Logo --%>
@@ -84,7 +84,7 @@ defmodule AgentOrchLandingWeb.Landing.Navbar do
 
       <%!-- Mobile menu --%>
       <%= if @mobile_menu_open do %>
-        <div id="mobile-menu" class="md:hidden border-t border-gray-200 dark:border-gray-800/50 bg-white/95 dark:bg-gray-950/95 backdrop-blur-lg">
+        <div id="mobile-menu" class="md:hidden border-t border-gray-200 dark:border-gray-800/50 bg-gray-50/95 dark:bg-gray-950/95 backdrop-blur-lg">
           <div class="px-6 py-4 space-y-3">
             <a href="/#solution" class="block text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Features</a>
             <a href="/#how-it-works" class="block text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">How It Works</a>

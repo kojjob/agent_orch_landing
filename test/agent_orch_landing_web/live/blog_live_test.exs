@@ -53,5 +53,19 @@ defmodule AgentOrchLandingWeb.BlogLiveTest do
         live(conn, "/blog/nonexistent-slug")
       end
     end
+
+    test "renders markdown body as HTML", %{conn: conn} do
+      {:ok, _} =
+        Blog.create_post(%{
+          @post_attrs
+          | slug: "markdown-post",
+            body: "# Hello\n\nThis is **bold** text."
+        })
+
+      {:ok, _view, html} = live(conn, "/blog/markdown-post")
+      assert html =~ "<h1>"
+      assert html =~ "Hello"
+      assert html =~ "<strong>bold</strong>"
+    end
   end
 end

@@ -24,31 +24,45 @@ defmodule AgentOrchLandingWeb.BlogPostLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div id="theme-root" phx-hook="ThemeToggle" class="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white" data-theme-value={@theme}>
+    <div
+      id="theme-root"
+      phx-hook="ThemeToggle"
+      class="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white"
+      data-theme-value={@theme}
+    >
       <.navbar mobile_menu_open={@mobile_menu_open} theme={@theme} />
       <div class="pt-16" id="scroll-reveal" phx-hook="ScrollReveal">
         <article class="px-6 py-24 sm:py-32 lg:px-8">
           <div class="mx-auto max-w-3xl">
-            <a href="/blog" class="inline-flex items-center text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors mb-8">
-              <svg class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <a
+              href="/blog"
+              class="inline-flex items-center text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors mb-8"
+            >
+              <svg
+                class="w-4 h-4 mr-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
               </svg>
               Back to Blog
             </a>
             <h1 class="font-[Space_Grotesk] text-4xl font-bold tracking-tight sm:text-5xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
-              <%= @post.title %>
+              {@post.title}
             </h1>
             <div class="mt-6 flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
-              <span><%= @post.author %></span>
+              <span>{@post.author}</span>
               <%= if @post.published_at do %>
                 <span>&middot;</span>
                 <time datetime={DateTime.to_iso8601(@post.published_at)}>
-                  <%= Calendar.strftime(@post.published_at, "%B %d, %Y") %>
+                  {Calendar.strftime(@post.published_at, "%B %d, %Y")}
                 </time>
               <% end %>
             </div>
             <div class="mt-10 prose prose-lg dark:prose-invert max-w-none prose-headings:font-[Space_Grotesk] prose-a:text-indigo-600 dark:prose-a:text-indigo-400">
-              <%= Phoenix.HTML.raw(@post.body) %>
+              {Phoenix.HTML.raw(render_markdown(@post.body))}
             </div>
           </div>
         </article>
@@ -56,5 +70,14 @@ defmodule AgentOrchLandingWeb.BlogPostLive do
       <.footer />
     </div>
     """
+  end
+
+  defp render_markdown(nil), do: ""
+
+  defp render_markdown(body) do
+    case Earmark.as_html(body) do
+      {:ok, html, _} -> html
+      {:error, _, _} -> body
+    end
   end
 end

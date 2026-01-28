@@ -79,6 +79,54 @@ defmodule AgentOrchLanding.BlogTest do
     end
   end
 
+  describe "list_all_posts/0" do
+    test "returns all posts including drafts" do
+      _published = create_post(%{slug: "published"})
+      _draft = create_post(%{slug: "draft", published_at: nil})
+
+      posts = Blog.list_all_posts()
+      slugs = Enum.map(posts, & &1.slug)
+      assert length(posts) == 2
+      assert "published" in slugs
+      assert "draft" in slugs
+    end
+  end
+
+  describe "get_post!/1" do
+    test "returns the post with the given id" do
+      post = create_post()
+      found = Blog.get_post!(post.id)
+      assert found.id == post.id
+    end
+
+    test "raises for unknown id" do
+      assert_raise Ecto.NoResultsError, fn ->
+        Blog.get_post!(Ecto.UUID.generate())
+      end
+    end
+  end
+
+  describe "update_post/2" do
+    test "with valid data updates the post" do
+      post = create_post()
+      assert {:ok, updated} = Blog.update_post(post, %{title: "Updated Title"})
+      assert updated.title == "Updated Title"
+    end
+
+    test "with invalid data returns error changeset" do
+      post = create_post()
+      assert {:error, %Ecto.Changeset{}} = Blog.update_post(post, %{title: nil})
+    end
+  end
+
+  describe "delete_post/1" do
+    test "deletes the post" do
+      post = create_post()
+      assert {:ok, _} = Blog.delete_post(post)
+      assert_raise Ecto.NoResultsError, fn -> Blog.get_post!(post.id) end
+    end
+  end
+
   describe "change_post/2" do
     test "returns a changeset" do
       post = create_post()

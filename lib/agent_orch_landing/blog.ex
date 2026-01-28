@@ -3,6 +3,26 @@ defmodule AgentOrchLanding.Blog do
   alias AgentOrchLanding.Repo
   alias AgentOrchLanding.Blog.Post
 
+  def list_all_posts do
+    Post
+    |> order_by([p], desc: p.inserted_at)
+    |> Repo.all()
+  end
+
+  def get_post!(id) do
+    Repo.get!(Post, id)
+  end
+
+  def update_post(%Post{} = post, attrs) do
+    post
+    |> Post.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def delete_post(%Post{} = post) do
+    Repo.delete(post)
+  end
+
   def list_published_posts do
     Post
     |> where([p], not is_nil(p.published_at))

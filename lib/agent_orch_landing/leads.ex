@@ -1,7 +1,7 @@
 defmodule AgentOrchLanding.Leads do
   import Ecto.Query
   alias AgentOrchLanding.Repo
-  alias AgentOrchLanding.Leads.{EmailCapture, DesignPartner}
+  alias AgentOrchLanding.Leads.{EmailCapture, DesignPartner, ContactSubmission}
 
   # Email Captures
 
@@ -23,6 +23,22 @@ defmodule AgentOrchLanding.Leads do
 
   def change_email_capture(%EmailCapture{} = email_capture, attrs \\ %{}) do
     EmailCapture.changeset(email_capture, attrs)
+  end
+
+  # Contact Submissions
+
+  def create_contact_submission(attrs \\ %{}) do
+    %ContactSubmission{}
+    |> ContactSubmission.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def list_contact_submissions do
+    ContactSubmission |> order_by(desc: :submitted_at) |> Repo.all()
+  end
+
+  def change_contact_submission(%ContactSubmission{} = submission, attrs \\ %{}) do
+    ContactSubmission.changeset(submission, attrs)
   end
 
   # Design Partners

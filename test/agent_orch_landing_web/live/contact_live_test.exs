@@ -25,7 +25,7 @@ defmodule AgentOrchLandingWeb.ContactLiveTest do
       assert html =~ "Send Message"
     end
 
-    test "form submission shows success state", %{conn: conn} do
+    test "form submission persists data and shows success state", %{conn: conn} do
       {:ok, view, _html} = live(conn, "/contact")
 
       html =
@@ -42,6 +42,13 @@ defmodule AgentOrchLandingWeb.ContactLiveTest do
 
       assert html =~ "Message sent!"
       assert html =~ "get back to you within 24 hours"
+
+      # Verify data was persisted
+      sub = AgentOrchLanding.Leads.list_contact_submissions() |> List.first()
+      assert sub.name == "Test User"
+      assert sub.email == "test@example.com"
+      assert sub.subject == "general"
+      assert sub.message == "Hello there"
     end
 
     test "renders FAQ section", %{conn: conn} do

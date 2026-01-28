@@ -51,6 +51,56 @@ defmodule AgentOrchLandingWeb.ContactLiveTest do
       assert sub.message == "Hello there"
     end
 
+    test "shows validation errors on change with invalid data", %{conn: conn} do
+      {:ok, view, _html} = live(conn, "/contact")
+
+      html =
+        view
+        |> form("form[phx-submit='submit_contact']", %{
+          contact: %{name: "", email: "bad", subject: "", message: ""}
+        })
+        |> render_change()
+
+      assert html =~ "can&#39;t be blank" or html =~ "can't be blank"
+      assert html =~ "must be a valid email"
+    end
+
+    test "clears validation errors when fields become valid", %{conn: conn} do
+      {:ok, view, _html} = live(conn, "/contact")
+
+      # Trigger errors first
+      view
+      |> form("form[phx-submit='submit_contact']", %{
+        contact: %{name: "", email: "bad", subject: "", message: ""}
+      })
+      |> render_change()
+
+      # Fix the fields
+      html =
+        view
+        |> form("form[phx-submit='submit_contact']", %{
+          contact: %{name: "Valid", email: "valid@test.com", subject: "general", message: "Hello"}
+        })
+        |> render_change()
+
+      refute html =~ "can&#39;t be blank" or html =~ "can't be blank"
+      refute html =~ "must be a valid email"
+    end
+
+    test "submit with invalid data shows errors instead of success", %{conn: conn} do
+      {:ok, view, _html} = live(conn, "/contact")
+
+      html =
+        view
+        |> form("form[phx-submit='submit_contact']", %{
+          contact: %{name: "", email: "", subject: "", message: ""}
+        })
+        |> render_submit()
+
+      refute html =~ "Message sent!"
+      assert html =~ "can&#39;t be blank" or html =~ "can't be blank"
+    end
+
     test "renders FAQ section", %{conn: conn} do
       {:ok, _view, html} = live(conn, "/contact")
       assert html =~ "Frequently asked questions"

@@ -61,6 +61,12 @@ defmodule AgentOrchLandingWeb.BlogPostLive do
                 </time>
               <% end %>
             </div>
+            <img
+              :if={@post.featured_image}
+              src={@post.featured_image}
+              alt={@post.title}
+              class="mt-8 w-full rounded-xl object-cover max-h-96"
+            />
             <div class="mt-10 prose prose-lg dark:prose-invert max-w-none prose-headings:font-[Space_Grotesk] prose-a:text-indigo-600 dark:prose-a:text-indigo-400">
               {Phoenix.HTML.raw(render_markdown(@post.body))}
             </div>

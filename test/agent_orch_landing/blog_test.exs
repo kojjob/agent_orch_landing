@@ -133,4 +133,29 @@ defmodule AgentOrchLanding.BlogTest do
       assert %Ecto.Changeset{} = Blog.change_post(post)
     end
   end
+
+  describe "featured_image field" do
+    test "post with featured_image persists correctly" do
+      attrs = Map.put(@valid_attrs, :featured_image, "/uploads/test-image.jpg")
+      assert {:ok, post} = Blog.create_post(attrs)
+      assert post.featured_image == "/uploads/test-image.jpg"
+    end
+
+    test "post without featured_image is valid" do
+      assert {:ok, post} = Blog.create_post(@valid_attrs)
+      assert is_nil(post.featured_image)
+    end
+
+    test "featured_image can be updated" do
+      post = create_post()
+      assert {:ok, updated} = Blog.update_post(post, %{featured_image: "/uploads/new.png"})
+      assert updated.featured_image == "/uploads/new.png"
+    end
+
+    test "featured_image can be cleared" do
+      post = create_post(%{featured_image: "/uploads/img.jpg", slug: "with-image"})
+      assert {:ok, updated} = Blog.update_post(post, %{featured_image: nil})
+      assert is_nil(updated.featured_image)
+    end
+  end
 end

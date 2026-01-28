@@ -11,6 +11,7 @@ defmodule AgentOrchLanding.Blog.Post do
     field :excerpt, :string
     field :body, :string
     field :author, :string
+    field :featured_image, :string
     field :published_at, :utc_datetime
 
     timestamps(type: :utc_datetime)
@@ -18,7 +19,7 @@ defmodule AgentOrchLanding.Blog.Post do
 
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:title, :slug, :excerpt, :body, :author, :published_at])
+    |> cast(attrs, [:title, :slug, :excerpt, :body, :author, :published_at, :featured_image])
     |> validate_required([:title, :body, :author])
     |> maybe_generate_slug()
     |> validate_required([:slug])

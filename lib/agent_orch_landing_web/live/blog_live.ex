@@ -64,6 +64,12 @@ defmodule AgentOrchLandingWeb.BlogLive do
                   data-animate="fade-up"
                 >
                   <a href={"/blog/#{post.slug}"} class="block">
+                    <img
+                      :if={post.featured_image}
+                      src={post.featured_image}
+                      alt={post.title}
+                      class="mb-4 w-full h-48 object-cover rounded-lg"
+                    />
                     <h2 class="font-[Space_Grotesk] text-2xl font-bold tracking-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {post.title}
                     </h2>

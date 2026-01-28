@@ -137,6 +137,28 @@ defmodule AgentOrchLandingWeb.Admin.BlogAdminLiveTest do
     end
   end
 
+  describe "admin blog form - uploads" do
+    setup [:authed_conn]
+
+    test "renders featured image upload zone on new form", %{conn: conn} do
+      {:ok, _view, html} = live(conn, "/admin/blog/new")
+      assert html =~ "Upload a featured image"
+      assert html =~ "Upload Inline Image"
+    end
+
+    test "shows existing featured image in edit form", %{conn: conn} do
+      {:ok, post} =
+        Blog.create_post(
+          Map.put(@post_attrs, :featured_image, "/uploads/test.jpg")
+          |> Map.put(:slug, "image-post")
+        )
+
+      {:ok, _view, html} = live(conn, "/admin/blog/#{post.id}/edit")
+      assert html =~ "/uploads/test.jpg"
+      assert html =~ "Remove image"
+    end
+  end
+
   describe "markdown preview" do
     setup [:authed_conn]
 
